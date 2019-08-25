@@ -1,6 +1,9 @@
 
-Library/
-Logs/
-Temp/
-*.sln
-.vs/
+/Library/
+/Logs/
+/Temp/
+/*.sln
+/.vs/
+.fuse_hidden*
+/*.csproj
+/obj/
