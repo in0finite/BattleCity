@@ -4,7 +4,7 @@ using UnityEngine;
 namespace BattleCity
 {
 
-	public class GameManager : MonoBehaviour
+	public class OptionsMenu : Menu
 	{
 
 	    void Start()
