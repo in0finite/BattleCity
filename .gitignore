@@ -2,5 +2,5 @@
 Library/
 Logs/
 Temp/
-*sln
+*.sln
 .vs/
