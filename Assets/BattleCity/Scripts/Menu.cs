@@ -7,12 +7,7 @@ namespace BattleCity
 	public class Menu : MonoBehaviour
 	{
 
-	    void Start()
-	    {
-	        
-	    }
-
-	    void Update()
+	    public virtual void OnBecameActive()
 	    {
 	        
 	    }
