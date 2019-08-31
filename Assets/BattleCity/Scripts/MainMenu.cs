@@ -9,7 +9,7 @@ namespace BattleCity
 	{
 		public static MainMenu Instance { get; private set; }
 
-		public Button newGameButton, optionsButton, scoreButton, helpButton, exitButton;
+		public Button newGameButton, optionsButton, scoreButton, helpButton, aboutButton, exitButton;
 
 
 		void Awake()
@@ -20,6 +20,8 @@ namespace BattleCity
 	    void Start()
 	    {
 	        optionsButton.onClick.AddListener(() => MenuManager.ActiveMenu = OptionsMenu.Instance);
+			scoreButton.onClick.AddListener(() => { ScoreMenu.Instance.CurrentScore = 0; ScoreMenu.Instance.ParentMenu = this; MenuManager.ActiveMenu = ScoreMenu.Instance; });
+			aboutButton.onClick.AddListener(() => MenuManager.ActiveMenu = AboutMenu.Instance);
 			helpButton.onClick.AddListener(() => Application.OpenURL("manual.pdf"));
 			exitButton.onClick.AddListener(() => Application.Quit());
 	    }
