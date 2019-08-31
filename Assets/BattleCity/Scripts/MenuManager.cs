@@ -24,7 +24,11 @@ namespace BattleCity
 
 	    void Start()
 	    {
-	        
+			foreach (var menu in FindObjectsOfType<Menu>())
+				menu.gameObject.SetActive(false);
+			
+	        MenuManager.ActiveMenu = MainMenu.Instance;
+			
 	    }
 
 	    void Update()
