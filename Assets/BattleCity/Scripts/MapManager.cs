@@ -19,6 +19,17 @@ namespace BattleCity
 		void Awake()
 		{
 			Instance = this;
+			SceneManager.activeSceneChanged += this.SceneChanged;
+		}
+
+		void SceneChanged(Scene s1, Scene s2)
+		{
+			if (s2.name == "Map")
+			{
+				CurrentLevel = 1;
+				CurrentScore = 0;
+				LoadLevel();
+			}
 		}
 		
 		void Start()
@@ -34,10 +45,7 @@ namespace BattleCity
 		public static void StartFirstLevel()
 		{
 			MenuManager.ActiveMenu = null;
-			CurrentLevel = 1;
-			CurrentScore = 0;
 			SceneManager.LoadScene("Map");
-			LoadLevel();
 		}
 
 		static void LoadLevel()
