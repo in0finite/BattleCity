@@ -19,6 +19,7 @@ namespace BattleCity
 
 	    void Start()
 	    {
+			newGameButton.onClick.AddListener(() => MapManager.StartFirstLevel());
 	        optionsButton.onClick.AddListener(() => MenuManager.ActiveMenu = OptionsMenu.Instance);
 			scoreButton.onClick.AddListener(() => { ScoreMenu.Instance.CurrentScore = 0; ScoreMenu.Instance.ParentMenu = this; MenuManager.ActiveMenu = ScoreMenu.Instance; });
 			aboutButton.onClick.AddListener(() => MenuManager.ActiveMenu = AboutMenu.Instance);

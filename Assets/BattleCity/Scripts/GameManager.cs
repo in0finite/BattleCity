@@ -30,6 +30,7 @@ namespace BattleCity
 		IEnumerator ChangeScene()
 		{
 			yield return null;
+			yield return null;
 			SceneManager.LoadScene("MainMenu");
 		}
 
