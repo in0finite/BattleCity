@@ -33,6 +33,7 @@ namespace BattleCity
 
 		public static void StartFirstLevel()
 		{
+			MenuManager.ActiveMenu = null;
 			CurrentLevel = 1;
 			CurrentScore = 0;
 			SceneManager.LoadScene("Map");
@@ -69,7 +70,7 @@ namespace BattleCity
 					}
 				}
 			}
-			
+
 		}
 		
 	}

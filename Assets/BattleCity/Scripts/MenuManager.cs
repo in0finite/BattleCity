@@ -15,9 +15,15 @@ namespace BattleCity
 			{
 				if (m_activeMenu != null)
 					m_activeMenu.gameObject.SetActive(false);
+
 				m_activeMenu = value;
-				m_activeMenu.gameObject.SetActive(true);
-				m_activeMenu.OnBecameActive();
+
+				if (m_activeMenu != null)
+				{
+					m_activeMenu.gameObject.SetActive(true);
+					m_activeMenu.OnBecameActive();
+				}
+				
 			}
 		}
 
