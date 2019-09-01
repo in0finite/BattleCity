@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BattleCity
 {
@@ -15,12 +17,20 @@ namespace BattleCity
 			else
 				SetMaxFps(30);
 			
+			StartCoroutine(this.ChangeScene());
+
 	    }
 
 		static void SetMaxFps(int maxFps)
 		{
 			QualitySettings.vSyncCount = 0;
 			Application.targetFrameRate = maxFps;
+		}
+		
+		IEnumerator ChangeScene()
+		{
+			yield return null;
+			SceneManager.LoadScene("MainMenu");
 		}
 
 	    void Update()
