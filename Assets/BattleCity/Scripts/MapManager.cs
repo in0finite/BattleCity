@@ -70,8 +70,8 @@ namespace BattleCity
 					char c = lines[i][j];
 					if (dict.ContainsKey(c))
 					{
-						Vector2 pos = new Vector2(j, i);
-						GameObject go = Instantiate( dict[c], new Vector3(j, 0f, i), Quaternion.identity);
+						Vector2 pos = new Vector2(j, height - i - 1);
+						GameObject go = Instantiate( dict[c], new Vector3(pos.x, 0f, pos.y), Quaternion.identity);
 						var mapObject = go.GetComponent<MapObject>();
 						mapObject.Position = pos;
 
