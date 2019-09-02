@@ -15,6 +15,8 @@ namespace BattleCity
 		public GameObject brickPrefab, waterPrefab, wallPrefab, flagPrefab, playerTankPrefab, enemyTankPrefab, playerSpawnPrefab,
 			enemySpawnPrefab;
 
+		public Material playerTankMaterial, enemyTankMaterial;
+
 		static int m_mapWidth, m_mapHeight;
 		static MapObject[,] m_mapObjects;
 
