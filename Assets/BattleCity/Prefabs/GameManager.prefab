@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6098523102789004800}
   - component: {fileID: 3962669800438809514}
   - component: {fileID: 4882545466056928068}
-  - component: {fileID: 5902412076390945233}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -70,30 +69,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda8db1a2c56e2d4eac507cd8cbc07c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5902412076390945233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7244424777287245482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdb076a1c9f7d546bcaf8cb5559f829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brickPrefab: {fileID: 7716890868182875629, guid: 211d5e1476a4706438b06ff57f86caf0,
-    type: 3}
-  waterPrefab: {fileID: 8942141026783741882, guid: 3b96b01150b1caa4b84a108a1a5acb2f,
-    type: 3}
-  wallPrefab: {fileID: 421929679629064866, guid: 589ea50c25104cf42a36147b7d198427,
-    type: 3}
-  flagPrefab: {fileID: 0}
-  playerTankPrefab: {fileID: 4485653954293420089, guid: 2911e1a815192d44d8f3450a358f83fc,
-    type: 3}
-  enemyTankPrefab: {fileID: 0}
-  playerSpawnPrefab: {fileID: 5524439675158037570, guid: d9fda64c9b6fd8442859c7b69abcb070,
-    type: 3}
-  enemySpawnPrefab: {fileID: 0}
-  playerTankMaterial: {fileID: 2100000, guid: b64429ead2ab018478e4d272b04b302e, type: 2}
-  enemyTankMaterial: {fileID: 2100000, guid: 2b962dbb6bc82fa42b33ee6d0526ec29, type: 2}

@@ -25,22 +25,36 @@ namespace BattleCity
 		void Awake()
 		{
 			Instance = this;
+		}
+
+		void OnEnable()
+		{
 			SceneManager.activeSceneChanged += this.SceneChanged;
+		}
+
+		void OnDisable()
+		{
+			SceneManager.activeSceneChanged -= this.SceneChanged;
 		}
 
 		void SceneChanged(Scene s1, Scene s2)
 		{
-			if (s2.name == "Map")
+			LoadLevelIfMapIsOpened();
+		}
+		
+		void Start()
+		{
+			LoadLevelIfMapIsOpened();
+		}
+
+		void LoadLevelIfMapIsOpened()
+		{
+			if (SceneManager.GetActiveScene().name == "Map")
 			{
 				CurrentLevel = 1;
 				CurrentScore = 0;
 				LoadLevel();
 			}
-		}
-		
-		void Start()
-		{
-			
 		}
 
 		void Update()

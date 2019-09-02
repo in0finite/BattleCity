@@ -445,6 +445,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 52, y: 0, z: 0}
+--- !u!1 &964413781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964413783}
+  - component: {fileID: 964413782}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &964413782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964413781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cdb076a1c9f7d546bcaf8cb5559f829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickPrefab: {fileID: 7716890868182875629, guid: 211d5e1476a4706438b06ff57f86caf0,
+    type: 3}
+  waterPrefab: {fileID: 8942141026783741882, guid: 3b96b01150b1caa4b84a108a1a5acb2f,
+    type: 3}
+  wallPrefab: {fileID: 421929679629064866, guid: 589ea50c25104cf42a36147b7d198427,
+    type: 3}
+  flagPrefab: {fileID: 0}
+  playerTankPrefab: {fileID: 4485653954293420089, guid: 2911e1a815192d44d8f3450a358f83fc,
+    type: 3}
+  enemyTankPrefab: {fileID: 0}
+  playerSpawnPrefab: {fileID: 5524439675158037570, guid: d9fda64c9b6fd8442859c7b69abcb070,
+    type: 3}
+  enemySpawnPrefab: {fileID: 0}
+  playerTankMaterial: {fileID: 2100000, guid: b64429ead2ab018478e4d272b04b302e, type: 2}
+  enemyTankMaterial: {fileID: 2100000, guid: 2b962dbb6bc82fa42b33ee6d0526ec29, type: 2}
+--- !u!4 &964413783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964413781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1948225924
 GameObject:
   m_ObjectHideFlags: 0
