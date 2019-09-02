@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1590942052874058684}
   - component: {fileID: 776575115293594780}
   - component: {fileID: 5384618740478546344}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,11 +17,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerTank
+  - EnemyTank
+  - Obstacle
+  - Ground
+  - Bullet
   - 
   - 
   - 
