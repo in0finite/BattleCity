@@ -114,7 +114,10 @@ namespace BattleCity
 		static void SpawnPlayerTank()
 		{
 			Transform spawn = FindObjectOfType<PlayerSpawn>().transform;
-			Instantiate(Instance.playerTankPrefab, spawn.position, Quaternion.LookRotation(Vector3.forward));
+
+			var tankGo = Instantiate(Instance.playerTankPrefab);
+			tankGo.transform.position = new Vector3(spawn.position.x, tankGo.transform.position.y, spawn.position.z);
+			tankGo.transform.forward = Vector3.forward;
 
 		}
 		
