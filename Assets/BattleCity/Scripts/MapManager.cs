@@ -79,6 +79,19 @@ namespace BattleCity
 				}
 			}
 
+			Transform groundTransform = GameObject.Find("Ground").transform;
+
+			Vector3 groundScale = groundTransform.localScale;
+			groundScale.x = width;
+			groundScale.z = height;
+			groundTransform.localScale = groundScale;
+
+			groundTransform.position = new Vector3(width / 2f - 0.5f, groundTransform.position.y, height / 2f - 0.5f);
+
+			Vector3 camPos = Camera.main.transform.position;
+			camPos.x = width / 2f;
+			Camera.main.transform.position = camPos;
+
 		}
 		
 	}
