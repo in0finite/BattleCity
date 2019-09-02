@@ -12,7 +12,11 @@ namespace BattleCity
 		public static int CurrentLevel { get; private set; }
 		public static int CurrentScore { get; private set; }
 
-		public GameObject brickPrefab, waterPrefab, wallPrefab, flagPrefab;
+		public GameObject brickPrefab, waterPrefab, wallPrefab, flagPrefab, playerTankPrefab, enemyTankPrefab, playerSpawnPrefab,
+			enemySpawnPrefab;
+
+		static int m_mapWidth, m_mapHeight;
+		static MapObject[,] m_mapObjects;
 
 
 
@@ -57,11 +61,16 @@ namespace BattleCity
 		static void LoadLevel(string[] lines)
 		{
 			var dict = new Dictionary<char, GameObject>(){
-				{'b', Instance.brickPrefab}, {'w', Instance.wallPrefab}, {'~', Instance.waterPrefab}, {'f', Instance.flagPrefab}
+				{'b', Instance.brickPrefab}, {'w', Instance.wallPrefab}, {'~', Instance.waterPrefab}, 
+				{'f', Instance.flagPrefab},
+				{'s', Instance.playerSpawnPrefab},
+				{'e', Instance.enemySpawnPrefab},
 			};
 
-			int width = lines[0].Length;
-			int height = lines.Length;
+			int width = m_mapWidth = lines[0].Length;
+			int height = m_mapHeight = lines.Length;
+
+			m_mapObjects = new MapObject[width, height];
 
 			for (int i = 0; i < height; i++)
 			{
@@ -75,9 +84,12 @@ namespace BattleCity
 						var mapObject = go.GetComponent<MapObject>();
 						mapObject.Position = pos;
 
+						m_mapObjects[j, height - i - 1] = mapObject;
 					}
 				}
 			}
+
+			// set ground scale and position
 
 			Transform groundTransform = GameObject.Find("Ground").transform;
 
@@ -88,9 +100,21 @@ namespace BattleCity
 
 			groundTransform.position = new Vector3(width / 2f - 0.5f, groundTransform.position.y, height / 2f - 0.5f);
 
+			// set camera position
+
 			Vector3 camPos = Camera.main.transform.position;
 			camPos.x = width / 2f;
 			Camera.main.transform.position = camPos;
+
+			// spawn player tank
+			SpawnPlayerTank();
+
+		}
+
+		static void SpawnPlayerTank()
+		{
+			Transform spawn = FindObjectOfType<PlayerSpawn>().transform;
+			Instantiate(Instance.playerTankPrefab, spawn.position, Quaternion.LookRotation(Vector3.forward));
 
 		}
 		
