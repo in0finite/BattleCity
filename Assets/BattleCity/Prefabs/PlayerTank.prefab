@@ -1743,6 +1743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4485653954293386265}
   - component: {fileID: 7203439608543437087}
+  - component: {fileID: 3171917582437830097}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Untagged
@@ -1778,6 +1779,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+--- !u!143 &3171917582437830097
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485653954293420089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.3
+  m_Radius: 0.16
+  m_SlopeLimit: 10
+  m_StepOffset: 0
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4485653954293420091
 GameObject:
   m_ObjectHideFlags: 0

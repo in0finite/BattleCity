@@ -8,10 +8,12 @@ namespace BattleCity
 	{
 		public float moveSpeed = 1.0f;
 
+		CharacterController m_cc;
+
 
 		void Awake()
 		{
-			
+			m_cc = this.GetComponent<CharacterController>();
 		}
 		
 		void Start()
@@ -21,7 +23,7 @@ namespace BattleCity
 			{
 				mr.sharedMaterial = MapManager.Instance.playerTankMaterial;
 			}
-			
+
 		}
 
 		void Update()
@@ -30,7 +32,9 @@ namespace BattleCity
 			inputMove.Normalize();
 			if (inputMove.sqrMagnitude > 0f)
 			{
-				this.transform.position += inputMove * Time.deltaTime * this.moveSpeed;
+				Vector3 moveDelta = inputMove * Time.deltaTime * this.moveSpeed;
+				//this.transform.position += moveDelta;
+				m_cc.Move(moveDelta);
 				this.transform.rotation = Quaternion.LookRotation(inputMove);
 			}
 		}
