@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/BattleCity/Scenes/Startup.unity
+    guid: b758796facaed914a9d978107bdf3924
+  - enabled: 1
+    path: Assets/BattleCity/Scenes/MainMenu.unity
+    guid: 234599be871697842915c0c1e24242a7
+  - enabled: 1
+    path: Assets/BattleCity/Scenes/Map.unity
+    guid: 2ad513ed10fff9f419c78e80c158383d
   m_configObjects: {}
