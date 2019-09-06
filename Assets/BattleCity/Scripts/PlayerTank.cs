@@ -12,6 +12,7 @@ namespace BattleCity
 		public float bulletVelocity = 4f;
 
 		float m_timeWhenFired = 0f;
+		float m_originalYPos;
 
 		CharacterController m_cc;
 
@@ -19,6 +20,7 @@ namespace BattleCity
 		void Awake()
 		{
 			m_cc = this.GetComponent<CharacterController>();
+			m_originalYPos = this.transform.position.y;
 		}
 		
 		void Start()
@@ -43,6 +45,10 @@ namespace BattleCity
 				m_cc.Move(moveDelta);
 				this.transform.rotation = Quaternion.LookRotation(inputMove);
 			}
+
+			Vector3 pos = this.transform.position;
+			pos.y = m_originalYPos;
+			this.transform.position = pos;
 
 			if (Input.GetButton("Submit"))
 			{
