@@ -560,6 +560,8 @@ MonoBehaviour:
   playerSpawnPrefab: {fileID: 5524439675158037570, guid: d9fda64c9b6fd8442859c7b69abcb070,
     type: 3}
   enemySpawnPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 6539255144000908965, guid: 398ee2e66e4428241b436e6d9ae74bb7,
+    type: 3}
   playerTankMaterial: {fileID: 2100000, guid: b64429ead2ab018478e4d272b04b302e, type: 2}
   enemyTankMaterial: {fileID: 2100000, guid: 2b962dbb6bc82fa42b33ee6d0526ec29, type: 2}
 --- !u!4 &964413783
