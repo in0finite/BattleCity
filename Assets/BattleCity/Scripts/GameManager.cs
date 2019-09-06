@@ -8,6 +8,20 @@ namespace BattleCity
 
 	public class GameManager : MonoBehaviour
 	{
+		public static GameManager Instance { get; private set; }
+
+
+		void Awake()
+		{
+			if (Instance != null)
+			{
+				Destroy(this.gameObject);
+				return;
+			}
+
+			Instance = this;
+			
+		}
 
 	    void Start()
 	    {
@@ -17,7 +31,8 @@ namespace BattleCity
 			else
 				SetMaxFps(30);
 			
-			StartCoroutine(this.ChangeScene());
+			if (0 == SceneManager.GetActiveScene().buildIndex)
+				StartCoroutine(this.ChangeScene());
 
 	    }
 
