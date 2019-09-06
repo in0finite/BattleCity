@@ -45,7 +45,7 @@ namespace BattleCity
 		
 		void Start()
 		{
-			LoadLevelIfMapIsOpened();
+			//LoadLevelIfMapIsOpened();
 		}
 
 		void LoadLevelIfMapIsOpened()
@@ -125,6 +125,8 @@ namespace BattleCity
 
 			// spawn player tank
 			SpawnPlayerTank();
+
+			Debug.LogFormat("LoadLevel() finished");
 
 		}
 
