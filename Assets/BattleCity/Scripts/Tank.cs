@@ -11,6 +11,7 @@ namespace BattleCity
 		public float fireInterval = 0.5f;
 		public Transform firePosition;
 		public float bulletVelocity = 4f;
+		public float health = 100f;
 
 		float m_timeWhenFired = 0f;
 
@@ -36,6 +37,13 @@ namespace BattleCity
 			
 		}
 
+
+		public virtual void OnCollidedWithBullet(Bullet bullet)
+		{
+			this.health -= bullet.damage;
+			if (this.health <= 0f)
+				Destroy(this.gameObject);
+		}
 
 		public virtual void TryFire()
 		{

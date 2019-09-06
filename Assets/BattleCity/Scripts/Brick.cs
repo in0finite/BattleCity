@@ -4,24 +4,18 @@ using UnityEngine;
 namespace BattleCity
 {
 	
-	public class Brick : MonoBehaviour
+	public class Brick : MapObject
 	{
 		
-		void Awake()
-		{
-			
-		}
+		public float health = 150f;
 		
-		void Start()
+		public override void OnCollidedWithBullet(Bullet bullet)
 		{
-			
+			this.health -= bullet.damage;
+			if (this.health <= 0f)
+				Destroy(this.gameObject);
 		}
 
-		void Update()
-		{
-			
-		}
-		
 	}
 
 }
