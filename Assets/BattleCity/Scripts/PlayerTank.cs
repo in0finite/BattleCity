@@ -4,27 +4,25 @@ using UnityEngine;
 namespace BattleCity
 {
 	
-	public class PlayerTank : MonoBehaviour
+	public class PlayerTank : Tank
 	{
-		public float moveSpeed = 1.0f;
-		public float fireInterval = 0.5f;
-		public Transform firePosition;
-		public float bulletVelocity = 4f;
-
-		float m_timeWhenFired = 0f;
+		
 		float m_originalYPos;
 
 		CharacterController m_cc;
 
 
-		void Awake()
+		protected override void Awake()
 		{
+			base.Awake();
 			m_cc = this.GetComponent<CharacterController>();
 			m_originalYPos = this.transform.position.y;
 		}
 		
-		void Start()
+		protected override void Start()
 		{
+			base.Start();
+
 			// set material
 			foreach(var mr in this.GetComponentsInChildren<MeshRenderer>())
 			{
@@ -52,15 +50,7 @@ namespace BattleCity
 
 			if (Input.GetButton("Submit"))
 			{
-				if (Time.time - m_timeWhenFired >= this.fireInterval)
-				{
-					// enough time passed
-
-					m_timeWhenFired = Time.time;
-					GameObject bulletGo = Instantiate(MapManager.Instance.bulletPrefab, this.firePosition.position, this.firePosition.rotation);
-					bulletGo.GetComponent<Rigidbody>().velocity = bulletGo.transform.forward * this.bulletVelocity;
-
-				}
+				this.TryFire();
 			}
 
 		}

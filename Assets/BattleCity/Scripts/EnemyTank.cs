@@ -4,27 +4,20 @@ using UnityEngine;
 namespace BattleCity
 {
 	
-	public class EnemyTank : MonoBehaviour
+	public class EnemyTank : Tank
 	{
 		
-		void Awake()
-		{
-			
-		}
 		
-		void Start()
+		protected override void Start()
 		{
+			base.Start();
+
 			// set material
 			foreach(var mr in this.GetComponentsInChildren<MeshRenderer>())
 			{
 				mr.sharedMaterial = MapManager.Instance.enemyTankMaterial;
 			}
 
-		}
-
-		void Update()
-		{
-			
 		}
 		
 	}
