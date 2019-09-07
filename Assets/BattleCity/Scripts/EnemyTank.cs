@@ -18,6 +18,8 @@ namespace BattleCity
 				mr.sharedMaterial = MapManager.Instance.enemyTankMaterial;
 			}
 
+			Debug.LogFormat("EnemyTank.Start()");
+			
 		}
 		
 	}

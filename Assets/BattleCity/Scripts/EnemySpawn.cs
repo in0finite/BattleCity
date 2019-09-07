@@ -4,23 +4,9 @@ using UnityEngine;
 namespace BattleCity
 {
 	
-	public class EnemySpawn : MonoBehaviour
+	public class EnemySpawn : MapObject
 	{
 		
-		void Awake()
-		{
-			
-		}
-		
-		void Start()
-		{
-			
-		}
-
-		void Update()
-		{
-			
-		}
 		
 	}
 

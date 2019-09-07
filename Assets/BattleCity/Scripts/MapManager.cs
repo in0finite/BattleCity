@@ -20,6 +20,15 @@ namespace BattleCity
 
 		static int m_mapWidth, m_mapHeight;
 		static MapObject[,] m_mapObjects;
+		public static IEnumerable<MapObject> MapObjects {
+			get {
+				foreach (var obj in m_mapObjects)
+					if (obj != null)
+						yield return obj;
+			}
+		}
+
+		public static bool IsMapOpened => SceneManager.GetActiveScene().name == "Map";
 
 
 
@@ -50,7 +59,7 @@ namespace BattleCity
 
 		void LoadLevelIfMapIsOpened()
 		{
-			if (SceneManager.GetActiveScene().name == "Map")
+			if (IsMapOpened)
 			{
 				CurrentLevel = 1;
 				CurrentScore = 0;
