@@ -9,9 +9,14 @@ namespace BattleCity
 	{
 		Vector2 m_currentPos;
 		Vector2 m_currentDir;
-		Vector2 m_targetPos;
+		public Vector2 TargetPos => m_currentPos + m_currentDir;
+		int m_numBlocksUntilRandomTurn = int.MaxValue;
 
-		
+		public int minNumBlocksUntilRandomTurn = 5;
+		public int maxNumBlocksUntilRandomTurn = 15;
+
+
+
 		protected override void Start()
 		{
 			base.Start();
@@ -33,7 +38,9 @@ namespace BattleCity
 			this.SetReal2DPos(m_currentPos);	// just in case
 
 			// set target position
-			m_targetPos = m_currentPos + m_currentDir;
+		//	m_targetPos = m_currentPos + m_currentDir;
+
+			m_numBlocksUntilRandomTurn = Random.Range(this.minNumBlocksUntilRandomTurn, this.maxNumBlocksUntilRandomTurn + 1);
 
 		}
 
@@ -59,6 +66,23 @@ namespace BattleCity
 		public Vector2[] GetAllDirsExceptCurrent()
 		{
 			return GetAllDirs().Except(new Vector2[]{m_currentDir}).ToArray();
+		}
+
+		public Vector2[] GetSideDirs()
+		{
+			if (m_currentDir.x != 0)	// moving along x axis
+			{
+				return new Vector2[]{new Vector2(0, -1), new Vector2(0, 1)};
+			}
+			else
+			{
+				return new Vector2[]{new Vector2(-1, 0), new Vector2(1, 0)};
+			}
+		}
+
+		public Vector2[] GetAvailableDirs(Vector2[] dirs)
+		{
+			return dirs.Where(dir => this.CanWalkToBlock(m_currentPos + dir)).ToArray();
 		}
 
 		public void SetRotationBasedOnDir()
@@ -107,7 +131,7 @@ namespace BattleCity
 					m_currentDir = randomAvailableDir;
 					this.SetRotationBasedOnDir();
 					// update target position
-					m_targetPos = m_currentPos + m_currentDir;
+				//	m_targetPos = m_currentPos + m_currentDir;
 				}
 				else
 				{
@@ -117,36 +141,19 @@ namespace BattleCity
 
 			// move toward target position
 
-			if (m_targetPos != m_currentPos)
+			if (this.TargetPos != m_currentPos)
 			{
 				Vector2 moveDelta = m_currentDir * this.moveSpeed * Time.deltaTime;
 
 				// check if tank will miss the target position
-				float distanceToTargetPos = Vector2.Distance(this.GetReal2DPos(), m_targetPos);
+				float distanceToTargetPos = Vector2.Distance(this.GetReal2DPos(), this.TargetPos);
 
 				if (distanceToTargetPos <= moveDelta.magnitude)
 				{
 					// tank will miss target position
 					// this means that tank arrived at target position and changed it's current position
 
-					m_currentPos = m_targetPos;
-					m_targetPos = m_currentPos + m_currentDir;
-
-					// check if tank can continue moving in the same direction
-					bool canContinueMoving = this.CanWalkToBlock(m_targetPos);
-
-					if (canContinueMoving)
-					{
-						// just update real position according to movement
-						this.SetReal2DPos( this.GetReal2DPos() + moveDelta );
-					}
-					else
-					{
-						// we will decide where to go in next frame
-
-						// update real position to be at the center of block
-						this.SetReal2DPos(m_currentPos);
-					}
+					this.OnTankChangedBlock(moveDelta);
 
 				}
 				else
@@ -157,6 +164,56 @@ namespace BattleCity
 
 			}
 
+		}
+
+		void OnTankChangedBlock(Vector2 moveDelta)
+		{
+
+			m_currentPos = this.TargetPos;
+		//	m_targetPos = m_currentPos + m_currentDir;
+
+			m_numBlocksUntilRandomTurn --;
+
+			if (m_numBlocksUntilRandomTurn <= 0)
+			{
+				// try to make a random turn to side
+				Vector2[] availableDirs = this.GetAvailableDirs(this.GetSideDirs());
+				if (availableDirs.Length > 0)
+				{
+					// we can turn
+
+					// pick a new direction
+					Vector2 dir = availableDirs[Random.Range(0, availableDirs.Length)];
+					m_currentDir = dir;
+					this.SetRotationBasedOnDir();
+
+					// set position at center of block
+					this.SetReal2DPos(m_currentPos);
+
+					// generate new number of blocks to wait until a new try
+					m_numBlocksUntilRandomTurn = Random.Range(this.minNumBlocksUntilRandomTurn, this.maxNumBlocksUntilRandomTurn + 1);
+
+					// return from function, so that we don't move the tank below
+					return;
+				}
+			}
+
+			// check if tank can continue moving in the same direction
+			bool canContinueMoving = this.CanWalkToBlock(this.TargetPos);
+
+			if (canContinueMoving)
+			{
+				// just update real position according to movement
+				this.SetReal2DPos( this.GetReal2DPos() + moveDelta );
+			}
+			else
+			{
+				// we will decide where to go in next frame
+
+				// update real position to be at the center of block
+				this.SetReal2DPos(m_currentPos);
+			}
+			
 		}
 		
 	}

@@ -3681,6 +3681,8 @@ MonoBehaviour:
   firePosition: {fileID: 0}
   bulletVelocity: 4
   health: 100
+  minNumBlocksUntilRandomTurn: 5
+  maxNumBlocksUntilRandomTurn: 15
 --- !u!143 &884260499533021386
 CharacterController:
   m_ObjectHideFlags: 0

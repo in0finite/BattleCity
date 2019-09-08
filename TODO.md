@@ -8,5 +8,5 @@
 
 - use fixed update for PlayerTank
 
-- enemy tanks are trying to avoid spawns
+- random turning for enemy tanks
 
