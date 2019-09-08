@@ -79,7 +79,10 @@ namespace BattleCity
 
 		public bool CanWalkToBlock(Vector2 blockPos)
 		{
-			return MapManager.IsInsideMap(blockPos) && null == MapManager.GetMapObjectAt(blockPos);
+			if (! MapManager.IsInsideMap(blockPos))
+				return false;
+			var mapObj = MapManager.GetMapObjectAt(blockPos);
+			return null == mapObj || mapObj.IsPassable;
 		}
 
 

@@ -4,23 +4,10 @@ using UnityEngine;
 namespace BattleCity
 {
 	
-	public class PlayerSpawn : MonoBehaviour
+	public class PlayerSpawn : MapObject
 	{
 		
-		void Awake()
-		{
-			
-		}
-		
-		void Start()
-		{
-			
-		}
-
-		void Update()
-		{
-			
-		}
+		public override bool IsPassable { get => true; }
 		
 	}
 
