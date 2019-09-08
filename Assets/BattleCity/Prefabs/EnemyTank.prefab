@@ -3676,7 +3676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d20244162f8014fbc1c86bfe7b463e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 3
   fireInterval: 0.5
   firePosition: {fileID: 0}
   bulletVelocity: 4

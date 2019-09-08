@@ -27,6 +27,10 @@ namespace BattleCity
 						yield return obj;
 			}
 		}
+		public static MapObject GetMapObjectAt(Vector2 pos) => m_mapObjects[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)];
+
+		public static bool IsInsideMap(Vector2 pos) => IsInsideMap(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y));
+		public static bool IsInsideMap(int x, int y) => x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight;
 
 		public static bool IsMapOpened => SceneManager.GetActiveScene().name == "Map";
 
