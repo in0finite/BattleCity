@@ -155,6 +155,19 @@ namespace BattleCity
 			tankGo.transform.forward = Vector3.forward;
 
 		}
+
+		public static void OnPlayerTankDestroyed()
+		{
+			// spawn it later
+			Instance.Invoke(nameof(SpawnPlayerTankLater), 3f);
+		}
+
+		void SpawnPlayerTankLater()
+		{
+			if (PlayerTank.Instance != null)
+				return;
+			SpawnPlayerTank();
+		}
 		
 	}
 
