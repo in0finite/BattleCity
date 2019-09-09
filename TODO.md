@@ -4,6 +4,8 @@
 
 - prevent possible collision between bullet and shooter tank
 
+- enemy tanks should not damage each other
+
 - switch camera modes
 
 - camera angle
