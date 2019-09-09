@@ -41,7 +41,7 @@ namespace BattleCity
 				Vector3 moveDelta = inputMove * Time.deltaTime * this.moveSpeed;
 				//this.transform.position += moveDelta;
 				m_cc.Move(moveDelta);
-				this.transform.rotation = Quaternion.LookRotation(inputMove);
+				this.transform.forward = inputMove;
 			}
 
 			Vector3 pos = this.transform.position;

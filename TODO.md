@@ -1,7 +1,5 @@
 
 
-- bullets collide with water
-
 - prevent possible collision between bullet and shooter tank
 
 - switch camera modes
