@@ -117,6 +117,11 @@ namespace BattleCity
 				// yield return new Vector2(pos.x, pos.z);
 				yield return PlayerTank.Instance.gameObject;
 			}
+
+			if (Flag.Instance != null)
+			{
+				yield return Flag.Instance.gameObject;
+			}
 			
 		}
 
