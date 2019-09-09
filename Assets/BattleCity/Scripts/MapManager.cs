@@ -150,10 +150,9 @@ namespace BattleCity
 		{
 			Transform spawn = FindObjectOfType<PlayerSpawn>().transform;
 
-			var tankGo = Instantiate(Instance.playerTankPrefab);
-			tankGo.transform.position = new Vector3(spawn.position.x, tankGo.transform.position.y, spawn.position.z);
-			tankGo.transform.forward = Vector3.forward;
-
+			Instantiate(Instance.playerTankPrefab, new Vector3(spawn.position.x, Instance.playerTankPrefab.transform.position.y, spawn.position.z),
+				Quaternion.identity);
+			
 		}
 
 		public static void OnPlayerTankDestroyed()
