@@ -42,11 +42,11 @@ namespace BattleCity
 
 			if (MapManager.IsMapOpened)
 			{
-				if (Input.GetKeyDown(KeyCode.Alpha1))
+				if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
 					SwitchToBirdView();
-				else if (Input.GetKeyDown(KeyCode.Alpha2))
+				else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
 					SwitchTo2DView();
-				else if (Input.GetKeyDown(KeyCode.Alpha3))
+				else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
 					SwitchToSideView();
 			}
 
