@@ -3713,6 +3713,9 @@ MonoBehaviour:
   health: 100
   minNumBlocksUntilRandomTurn: 5
   maxNumBlocksUntilRandomTurn: 15
+  targetRaycastMask:
+    serializedVersion: 2
+    m_Bits: 53543
 --- !u!143 &884260499533021386
 CharacterController:
   m_ObjectHideFlags: 0

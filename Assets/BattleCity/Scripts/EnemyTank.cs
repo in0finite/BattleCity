@@ -18,6 +18,8 @@ namespace BattleCity
 		static readonly Vector2[] s_positionsAroundFlag = new Vector2[]{new Vector2(-1, 0), new Vector2(-1, 1),
 			new Vector2(0, 1), new Vector2(1, 1), new Vector2(1, 0)};
 
+		public LayerMask targetRaycastMask = Physics.AllLayers;
+
 
 
 		protected override void Start()
@@ -163,7 +165,7 @@ namespace BattleCity
 			
 			RaycastHit hit;
 		//	float distance = Vector3.Distance(this.transform.position, new Vector3(pos.x, this.transform.position.y, pos.y));
-			if (Physics.Raycast(this.firePosition.position, this.firePosition.forward, out hit))
+			if (Physics.Raycast(this.firePosition.position, this.firePosition.forward, out hit, this.targetRaycastMask))
 			{
 				return hit.transform.gameObject;
 			}

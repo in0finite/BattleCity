@@ -6,13 +6,9 @@
 
 - enemy tanks should not damage each other
 
-- enemy tank: when looking for target, specify layer mask - ignore bullets, enemy tanks, water
-
 - switch camera modes
-
-- camera angle
 
 - when enemy tank is facing toward target, don't change his direction
 
-- implement flag - enemy tanks should target it and it's surrounding bricks
+- respawn player tank
 
