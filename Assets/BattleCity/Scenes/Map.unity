@@ -439,7 +439,8 @@ MonoBehaviour:
     type: 3}
   wallPrefab: {fileID: 421929679629064866, guid: 589ea50c25104cf42a36147b7d198427,
     type: 3}
-  flagPrefab: {fileID: 0}
+  flagPrefab: {fileID: 5557281632482422721, guid: f1d708a5162f21b469ab058c5c18e8f2,
+    type: 3}
   playerTankPrefab: {fileID: 4485653954293420089, guid: 2911e1a815192d44d8f3450a358f83fc,
     type: 3}
   enemyTankPrefab: {fileID: 7602058592348432618, guid: a409528cb547a464fa14750a01c73031,

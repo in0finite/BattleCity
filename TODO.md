@@ -1,5 +1,7 @@
 
 
+- implement pickups: strength increase, stronger bullet, shield, fortify base, freeze enemy tanks
+
 - prevent possible collision between bullet and shooter tank
 
 - switch camera modes
@@ -8,5 +10,5 @@
 
 - when enemy tank is facing toward target, don't change his direction
 
-- firing bullets by enemy tanks
+- implement flag - enemy tanks should target it and it's surrounding bricks
 

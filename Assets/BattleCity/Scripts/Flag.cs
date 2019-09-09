@@ -4,22 +4,15 @@ using UnityEngine;
 namespace BattleCity
 {
 	
-	public class Flag : MonoBehaviour
+	public class Flag : MapObject
 	{
 		
-		void Awake()
+		public override void OnCollidedWithBullet(Bullet bullet)
 		{
-			
-		}
-		
-		void Start()
-		{
-			
-		}
+			// game over
+			Debug.LogFormat("Bullet collided with flag - game over");
 
-		void Update()
-		{
-			
+			Destroy(this.gameObject);
 		}
 		
 	}
