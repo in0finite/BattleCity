@@ -109,6 +109,65 @@ namespace BattleCity
 			return null == mapObj || mapObj.IsPassable;
 		}
 
+		public IEnumerable<GameObject> GetTargetsForShooting()
+		{
+			if (PlayerTank.Instance != null)
+			{
+				// Vector3 pos = PlayerTank.Instance.transform.position;
+				// yield return new Vector2(pos.x, pos.z);
+				yield return PlayerTank.Instance.gameObject;
+			}
+			
+		}
+
+		public IEnumerable<GameObject> GetVisibleTargetsForShooting()
+		{
+			return this.GetTargetsForShooting().Where(target => this.IsTargetVisible(target));
+		}
+
+		public bool IsTargetVisible(GameObject targetGo)
+		{
+			// if (m_currentDir.x != 0)
+			// {
+			// 	// looking right/left
+
+			// 	// position.y must be the same
+			// 	if (pos.y != m_currentPos.y)
+			// 		return false;
+				
+			// 	// go through map
+			// 	for (float x = m_currentPos.x + Mathf.Sign(m_currentDir.x); x < MapManager.MapWidth && x >= 0 ; x += Mathf.Sign(m_currentDir.x))
+			// 	{
+			// 		var mapObj = MapManager.GetMapObjectAt(x, m_currentPos.y);
+
+			// 	}
+
+			// }
+
+			
+			RaycastHit hit;
+		//	float distance = Vector3.Distance(this.transform.position, new Vector3(pos.x, this.transform.position.y, pos.y));
+			if (Physics.Raycast(this.firePosition.position, this.firePosition.forward, out hit))
+			{
+				return hit.transform.gameObject == targetGo;
+			}
+
+			return false;
+		}
+
+
+		void Update()
+		{
+
+			// fire bullet at target
+			if (this.CanFire)
+			{
+				GameObject targetGo = this.GetVisibleTargetsForShooting().FirstOrDefault();
+				if (targetGo != null)
+					this.TryFire();
+			}
+
+		}
 
 		void FixedUpdate()
 		{

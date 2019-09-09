@@ -7,6 +7,8 @@ namespace BattleCity
 	public class PlayerTank : Tank
 	{
 		
+		public static PlayerTank Instance { get; private set; }
+
 		float m_originalYPos;
 
 		CharacterController m_cc;
@@ -15,6 +17,7 @@ namespace BattleCity
 		protected override void Awake()
 		{
 			base.Awake();
+			Instance = this;
 			m_cc = this.GetComponent<CharacterController>();
 			m_originalYPos = this.transform.position.y;
 		}

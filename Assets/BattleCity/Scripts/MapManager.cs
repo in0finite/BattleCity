@@ -19,6 +19,8 @@ namespace BattleCity
 		public Material playerTankMaterial, enemyTankMaterial;
 
 		static int m_mapWidth, m_mapHeight;
+		public static int MapWidth => m_mapWidth;
+		public static int MapHeight => m_mapHeight;
 		static MapObject[,] m_mapObjects;
 		public static IEnumerable<MapObject> MapObjects {
 			get {
@@ -28,6 +30,7 @@ namespace BattleCity
 			}
 		}
 		public static MapObject GetMapObjectAt(Vector2 pos) => m_mapObjects[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)];
+		public static MapObject GetMapObjectAt(float x, float y) => GetMapObjectAt(new Vector2(x, y));
 
 		public static bool IsInsideMap(Vector2 pos) => IsInsideMap(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y));
 		public static bool IsInsideMap(int x, int y) => x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight;

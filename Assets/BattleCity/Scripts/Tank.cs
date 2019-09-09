@@ -15,6 +15,8 @@ namespace BattleCity
 
 		float m_timeWhenFired = 0f;
 
+		public bool CanFire => Time.time - m_timeWhenFired >= this.fireInterval;
+
 
 
 		protected virtual void Awake()
@@ -48,7 +50,7 @@ namespace BattleCity
 		public virtual void TryFire()
 		{
 
-			if (Time.time - m_timeWhenFired >= this.fireInterval)
+			if (this.CanFire)
 			{
 				// enough time passed
 
