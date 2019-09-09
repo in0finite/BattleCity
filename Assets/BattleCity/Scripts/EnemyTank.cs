@@ -15,6 +15,9 @@ namespace BattleCity
 		public int minNumBlocksUntilRandomTurn = 5;
 		public int maxNumBlocksUntilRandomTurn = 15;
 
+		static readonly Vector2[] s_positionsAroundFlag = new Vector2[]{new Vector2(-1, 0), new Vector2(-1, 1),
+			new Vector2(0, 1), new Vector2(1, 1), new Vector2(1, 0)};
+
 
 
 		protected override void Start()
@@ -121,6 +124,19 @@ namespace BattleCity
 			if (Flag.Instance != null)
 			{
 				yield return Flag.Instance.gameObject;
+
+				// objects around flag
+				Vector2 flagPos = Flag.Instance.Position;
+				foreach (Vector2 posOffset in s_positionsAroundFlag)
+				{
+					Vector2 pos = flagPos + posOffset;
+					if (MapManager.IsInsideMap(pos))
+					{
+						var mapObj = MapManager.GetMapObjectAt(pos);
+						if (mapObj != null)
+							yield return mapObj.gameObject;
+					}
+				}
 			}
 			
 		}

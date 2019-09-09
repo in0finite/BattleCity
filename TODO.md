@@ -6,6 +6,8 @@
 
 - enemy tanks should not damage each other
 
+- enemy tank: when looking for target, specify layer mask - ignore bullets, enemy tanks, water
+
 - switch camera modes
 
 - camera angle
