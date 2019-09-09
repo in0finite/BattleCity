@@ -31,7 +31,7 @@ namespace BattleCity
 
 		}
 
-		void Update()
+		void FixedUpdate()
 		{
 
 			Vector3 inputMove = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
@@ -47,6 +47,11 @@ namespace BattleCity
 			Vector3 pos = this.transform.position;
 			pos.y = m_originalYPos;
 			this.transform.position = pos;
+
+		}
+
+		void Update()
+		{
 
 			if (Input.GetButton("Submit"))
 			{
