@@ -134,10 +134,7 @@ namespace BattleCity
 			groundTransform.position = new Vector3(width / 2f - 0.5f, groundTransform.position.y, height / 2f - 0.5f);
 
 			// set camera position
-
-			Vector3 camPos = Camera.main.transform.position;
-			camPos.x = width / 2f;
-			Camera.main.transform.position = camPos;
+			CameraManager.Instance.SwitchToSideView();
 
 			// spawn player tank
 			SpawnPlayerTank();
