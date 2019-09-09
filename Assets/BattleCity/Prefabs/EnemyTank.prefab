@@ -3710,12 +3710,13 @@ MonoBehaviour:
   fireInterval: 0.5
   firePosition: {fileID: 4366494305118741915}
   bulletVelocity: 4
+  bulletLayerName: EnemyBullet
   health: 100
   minNumBlocksUntilRandomTurn: 5
   maxNumBlocksUntilRandomTurn: 15
   targetRaycastMask:
     serializedVersion: 2
-    m_Bits: 53543
+    m_Bits: 119079
 --- !u!143 &884260499533021386
 CharacterController:
   m_ObjectHideFlags: 0

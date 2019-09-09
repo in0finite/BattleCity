@@ -10,5 +10,3 @@
 
 - when enemy tank is facing toward target, don't change his direction
 
-- respawn player tank
-

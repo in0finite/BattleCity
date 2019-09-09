@@ -11,6 +11,7 @@ namespace BattleCity
 		public float fireInterval = 0.5f;
 		public Transform firePosition;
 		public float bulletVelocity = 4f;
+		public string bulletLayerName = "";
 		public float health = 100f;
 
 		float m_timeWhenFired = 0f;
@@ -52,10 +53,10 @@ namespace BattleCity
 
 			if (this.CanFire)
 			{
-				// enough time passed
-
+				
 				m_timeWhenFired = Time.time;
 				GameObject bulletGo = Instantiate(MapManager.Instance.bulletPrefab, this.firePosition.position, this.firePosition.rotation);
+				bulletGo.layer = LayerMask.NameToLayer(this.bulletLayerName);
 				bulletGo.GetComponent<Rigidbody>().velocity = bulletGo.transform.forward * this.bulletVelocity;
 
 			}

@@ -1782,6 +1782,8 @@ MonoBehaviour:
   fireInterval: 0.5
   firePosition: {fileID: 7967836517388504166}
   bulletVelocity: 4
+  bulletLayerName: PlayerBullet
+  health: 100
 --- !u!143 &3171917582437830097
 CharacterController:
   m_ObjectHideFlags: 0

@@ -21,8 +21,8 @@ TagManager:
   - EnemyTank
   - Obstacle
   - Ground
-  - Bullet
-  - 
+  - PlayerBullet
+  - EnemyBullet
   - 
   - 
   - 
