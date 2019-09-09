@@ -189,9 +189,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ortoZPosition: 4.5
   ortoEulers: {x: 90, y: 0, z: 0}
-  birdHeight: 12
+  birdHeight: 5.5
   birdZPosition: 4.5
   birdEulers: {x: 90, y: 0, z: 0}
+  birdFieldOfView: 90
 --- !u!4 &474768277
 Transform:
   m_ObjectHideFlags: 0

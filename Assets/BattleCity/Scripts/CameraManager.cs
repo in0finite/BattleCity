@@ -10,6 +10,7 @@ namespace BattleCity
 
 		Vector3 m_originalCamPos = Vector3.zero;
 		Vector3 m_originalCamEulers = Vector3.zero;
+		float m_orignalCamFieldOfView = 0f;
 
 		public float ortoZPosition = 0f;
 		public Vector3 ortoEulers = Vector3.zero;
@@ -17,6 +18,7 @@ namespace BattleCity
 		public float birdHeight = 12f;
 		public float birdZPosition = 0f;
 		public Vector3 birdEulers = Vector3.zero;
+		public float birdFieldOfView = 60f;
 
 
 
@@ -27,6 +29,7 @@ namespace BattleCity
 			var cam = Camera.main;
 			m_originalCamPos = cam.transform.position;
 			m_originalCamEulers = cam.transform.eulerAngles;
+			m_orignalCamFieldOfView = cam.fieldOfView;
 		}
 		
 		void Start()
@@ -60,6 +63,8 @@ namespace BattleCity
 			cam.transform.position = pos;
 
 			cam.transform.eulerAngles = m_originalCamEulers;
+
+			cam.fieldOfView = m_orignalCamFieldOfView;
 		}
 
 		public void SwitchToBirdView()
@@ -75,6 +80,8 @@ namespace BattleCity
 			cam.transform.position = pos;
 
 			cam.transform.eulerAngles = this.birdEulers;
+
+			cam.fieldOfView = this.birdFieldOfView;
 		}
 
 		public void SwitchTo2DView()
@@ -89,6 +96,8 @@ namespace BattleCity
 			cam.transform.position = pos;
 
 			cam.transform.eulerAngles = this.ortoEulers;
+
+			cam.fieldOfView = m_orignalCamFieldOfView;
 		}
 
 	}
