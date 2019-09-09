@@ -120,12 +120,7 @@ namespace BattleCity
 			
 		}
 
-		public IEnumerable<GameObject> GetVisibleTargetsForShooting()
-		{
-			return this.GetTargetsForShooting().Where(target => this.IsTargetVisible(target));
-		}
-
-		public bool IsTargetVisible(GameObject targetGo)
+		public GameObject GetVisibleObject()
 		{
 			// if (m_currentDir.x != 0)
 			// {
@@ -149,10 +144,10 @@ namespace BattleCity
 		//	float distance = Vector3.Distance(this.transform.position, new Vector3(pos.x, this.transform.position.y, pos.y));
 			if (Physics.Raycast(this.firePosition.position, this.firePosition.forward, out hit))
 			{
-				return hit.transform.gameObject == targetGo;
+				return hit.transform.gameObject;
 			}
 
-			return false;
+			return null;
 		}
 
 
@@ -162,8 +157,8 @@ namespace BattleCity
 			// fire bullet at target
 			if (this.CanFire)
 			{
-				GameObject targetGo = this.GetVisibleTargetsForShooting().FirstOrDefault();
-				if (targetGo != null)
+				GameObject targetGo = this.GetVisibleObject();
+				if (targetGo != null && this.GetTargetsForShooting().Contains(targetGo))
 					this.TryFire();
 			}
 
