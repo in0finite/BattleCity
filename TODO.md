@@ -20,5 +20,5 @@
 
 - when enemy tank is facing toward target, don't change his direction
 
-- enemy tanks should randomly fire across the map
+- increase max num of enemy tanks
 

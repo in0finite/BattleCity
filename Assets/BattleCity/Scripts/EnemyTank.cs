@@ -179,6 +179,15 @@ namespace BattleCity
 			return null;
 		}
 
+		public bool IsAnyTargetVisible()
+		{
+			var obj = this.GetVisibleObject();
+			if (null == obj)
+				return false;
+			
+			return this.GetTargetsForShooting().Contains(obj);
+		}
+
 
 		void Update()
 		{
@@ -223,13 +232,20 @@ namespace BattleCity
 				Vector2[] availableDirs = dirs.Where(dir => this.CanWalkToBlock(m_currentPos + dir)).ToArray();
 				if (availableDirs.Length > 0)
 				{
-					// pick a random available direction
-					Vector2 randomAvailableDir = availableDirs[Random.Range(0, availableDirs.Length)];
-					// assign this direction to tank
-					m_currentDir = randomAvailableDir;
-					this.SetRotationBasedOnDir();
-					// update target position
-				//	m_targetPos = m_currentPos + m_currentDir;
+					if (! this.IsAnyTargetVisible())	// only change direction if no target is visible
+					{
+						// pick a random available direction
+						Vector2 randomAvailableDir = availableDirs[Random.Range(0, availableDirs.Length)];
+						// assign this direction to tank
+						m_currentDir = randomAvailableDir;
+						this.SetRotationBasedOnDir();
+						// update target position
+					//	m_targetPos = m_currentPos + m_currentDir;
+					}
+					else
+					{
+						Debug.LogWarningFormat("skipped direction changing");
+					}
 				}
 				else
 				{
@@ -239,7 +255,7 @@ namespace BattleCity
 
 			// move toward target position
 
-			if (this.TargetPos != m_currentPos)
+			if (this.CanWalkToBlock(this.TargetPos))
 			{
 				Vector2 moveDelta = m_currentDir * this.moveSpeed * Time.deltaTime;
 
@@ -276,7 +292,7 @@ namespace BattleCity
 			{
 				// try to make a random turn to side
 				Vector2[] availableDirs = this.GetAvailableDirs(this.GetSideDirs());
-				if (availableDirs.Length > 0)
+				if (availableDirs.Length > 0 && ! this.IsAnyTargetVisible())
 				{
 					// we can turn
 
