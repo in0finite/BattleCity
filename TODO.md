@@ -22,3 +22,5 @@
 
 - increase max num of enemy tanks
 
+- enemy tank raycasts through objects in front of it
+

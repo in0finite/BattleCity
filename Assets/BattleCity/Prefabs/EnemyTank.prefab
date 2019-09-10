@@ -3717,6 +3717,9 @@ MonoBehaviour:
   targetRaycastMask:
     serializedVersion: 2
     m_Bits: 119079
+  fireRandomly: 0
+  minIntervalToFireRandomly: 3
+  maxIntervalToFireRandomly: 7
 --- !u!143 &884260499533021386
 CharacterController:
   m_ObjectHideFlags: 0

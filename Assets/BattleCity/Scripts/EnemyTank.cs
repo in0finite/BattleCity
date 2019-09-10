@@ -20,6 +20,7 @@ namespace BattleCity
 
 		public LayerMask targetRaycastMask = Physics.AllLayers;
 
+		public bool fireRandomly = true;
 		public float minIntervalToFireRandomly = 3;
 		public float maxIntervalToFireRandomly = 7;
 		float m_intervalToFireRandomly = 100;
@@ -171,7 +172,7 @@ namespace BattleCity
 			
 			RaycastHit hit;
 		//	float distance = Vector3.Distance(this.transform.position, new Vector3(pos.x, this.transform.position.y, pos.y));
-			if (Physics.Raycast(this.firePosition.position, this.firePosition.forward, out hit, this.targetRaycastMask))
+			if (Physics.Raycast(this.firePosition.position, this.firePosition.forward, out hit, 1000f, this.targetRaycastMask))
 			{
 				return hit.transform.gameObject;
 			}
@@ -179,13 +180,17 @@ namespace BattleCity
 			return null;
 		}
 
+		public GameObject GetVisibleTarget()
+		{
+			var go = this.GetVisibleObject();
+			if (go != null && this.GetTargetsForShooting().Contains(go))
+				return go;
+			return null;
+		}
+
 		public bool IsAnyTargetVisible()
 		{
-			var obj = this.GetVisibleObject();
-			if (null == obj)
-				return false;
-			
-			return this.GetTargetsForShooting().Contains(obj);
+			return this.GetVisibleTarget() != null;
 		}
 
 
@@ -195,13 +200,12 @@ namespace BattleCity
 			// fire bullet at target
 			if (this.CanFire)
 			{
-				GameObject targetGo = this.GetVisibleObject();
-				if (targetGo != null && this.GetTargetsForShooting().Contains(targetGo))
+				if (this.IsAnyTargetVisible())
 					this.TryFire();
 			}
 
 			// fire bullets randomly
-			if (this.CanFire)
+			if (this.fireRandomly && this.CanFire)
 			{
 				if (this.TimeSinceFired >= m_intervalToFireRandomly)
 				{
@@ -328,6 +332,15 @@ namespace BattleCity
 				this.SetReal2DPos(m_currentPos);
 			}
 			
+		}
+
+
+		void OnDrawGizmosSelected()
+		{
+			Gizmos.color = Color.red;
+			var go = this.GetVisibleObject();
+			if (go != null)
+				Gizmos.DrawCube(go.transform.position, Vector3.one);
 		}
 		
 	}
