@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 4
-  maxNumTanksAtATime: 4
+  maxNumTanksAtATime: 5
   numTanksPerLevel: 20
 --- !u!4 &402773036
 Transform:

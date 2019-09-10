@@ -18,9 +18,5 @@
 
 - reduce bullet size
 
-- when enemy tank is facing toward target, don't change his direction
-
 - increase max num of enemy tanks
-
-- enemy tank raycasts through objects in front of it
 
