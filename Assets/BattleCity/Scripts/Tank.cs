@@ -58,6 +58,7 @@ namespace BattleCity
 				m_timeWhenFired = Time.time;
 				GameObject bulletGo = Instantiate(MapManager.Instance.bulletPrefab, this.firePosition.position, this.firePosition.rotation);
 				bulletGo.layer = LayerMask.NameToLayer(this.bulletLayerName);
+				bulletGo.GetComponent<Bullet>().TankShooter = this;
 				bulletGo.GetComponent<Rigidbody>().velocity = bulletGo.transform.forward * this.bulletVelocity;
 
 			}
