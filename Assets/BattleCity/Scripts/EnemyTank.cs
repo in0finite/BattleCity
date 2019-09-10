@@ -20,6 +20,10 @@ namespace BattleCity
 
 		public LayerMask targetRaycastMask = Physics.AllLayers;
 
+		public float minIntervalToFireRandomly = 3;
+		public float maxIntervalToFireRandomly = 7;
+		float m_intervalToFireRandomly = 100;
+
 
 
 		protected override void Start()
@@ -46,6 +50,8 @@ namespace BattleCity
 		//	m_targetPos = m_currentPos + m_currentDir;
 
 			m_numBlocksUntilRandomTurn = Random.Range(this.minNumBlocksUntilRandomTurn, this.maxNumBlocksUntilRandomTurn + 1);
+
+			m_intervalToFireRandomly = Random.Range(this.minIntervalToFireRandomly, this.maxIntervalToFireRandomly);
 
 		}
 
@@ -183,6 +189,21 @@ namespace BattleCity
 				GameObject targetGo = this.GetVisibleObject();
 				if (targetGo != null && this.GetTargetsForShooting().Contains(targetGo))
 					this.TryFire();
+			}
+
+			// fire bullets randomly
+			if (this.CanFire)
+			{
+				if (this.TimeSinceFired >= m_intervalToFireRandomly)
+				{
+					// we should fire
+					
+					this.TryFire();
+
+					// assign new interval
+					m_intervalToFireRandomly = Random.Range(this.minIntervalToFireRandomly, this.maxIntervalToFireRandomly);
+
+				}
 			}
 
 		}

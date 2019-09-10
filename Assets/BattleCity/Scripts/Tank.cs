@@ -15,8 +15,9 @@ namespace BattleCity
 		public float health = 100f;
 
 		float m_timeWhenFired = 0f;
+		public float TimeSinceFired => Time.time - m_timeWhenFired;
 
-		public bool CanFire => Time.time - m_timeWhenFired >= this.fireInterval;
+		public bool CanFire => this.TimeSinceFired >= this.fireInterval;
 
 
 

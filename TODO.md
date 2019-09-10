@@ -1,4 +1,14 @@
 
+- sound effects ; music
+
+- score menu
+
+- pause menu
+
+- advancing levels - enhance enemy tanks' abilities ;
+
+
+***
 
 - implement pickups: strength increase, stronger bullet, shield, fortify base, freeze enemy tanks
 
@@ -7,8 +17,6 @@
 - script execution order
 
 - reduce bullet size
-
-- switch camera modes: side perspective, bird perspective, 2D
 
 - when enemy tank is facing toward target, don't change his direction
 
