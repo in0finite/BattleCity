@@ -19,6 +19,7 @@ namespace BattleCity
 			new Vector2(0, 1), new Vector2(1, 1), new Vector2(1, 0)};
 
 		public LayerMask targetRaycastMask = Physics.AllLayers;
+		public Transform raycastPosition = null;
 
 		public bool fireRandomly = true;
 		public float minIntervalToFireRandomly = 3;
@@ -172,7 +173,7 @@ namespace BattleCity
 			
 			RaycastHit hit;
 		//	float distance = Vector3.Distance(this.transform.position, new Vector3(pos.x, this.transform.position.y, pos.y));
-			if (Physics.Raycast(this.firePosition.position, this.firePosition.forward, out hit, 1000f, this.targetRaycastMask))
+			if (Physics.Raycast(this.raycastPosition.position, this.raycastPosition.forward, out hit, 1000f, this.targetRaycastMask))
 			{
 				return hit.transform.gameObject;
 			}
