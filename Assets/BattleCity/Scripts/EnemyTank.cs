@@ -150,10 +150,10 @@ namespace BattleCity
 			}
 			
 			// player tank's bullets
-			foreach (Bullet bullet in Bullet.AllBullets.Where(b => b.TankShooter != null && b.TankShooter == PlayerTank.Instance))
-			{
-				yield return bullet.gameObject;
-			}
+			// foreach (Bullet bullet in Bullet.AllBullets.Where(b => b.TankShooter != null && b.TankShooter == PlayerTank.Instance))
+			// {
+			// 	yield return bullet.gameObject;
+			// }
 
 		}
 
