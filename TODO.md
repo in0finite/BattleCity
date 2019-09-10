@@ -10,9 +10,7 @@
 
 ***
 
-- implement pickups: strength increase, stronger bullet, shield, fortify base, freeze enemy tanks
+- implement pickups: strength increase / stronger bullet, shield, ~~fortify base~~, freeze enemy tanks
 
-- prevent possible collision between bullet and shooter tank
-
-- script execution order
+- prevent **possible** collision between bullet and shooter tank
 
