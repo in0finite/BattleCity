@@ -16,5 +16,3 @@
 
 - script execution order
 
-- reduce bullet size
-
