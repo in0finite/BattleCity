@@ -18,5 +18,3 @@
 
 - reduce bullet size
 
-- increase max num of enemy tanks
-
