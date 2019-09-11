@@ -730,7 +730,9 @@ MonoBehaviour:
   numPickupsPerLevel: 2
   pickupPrefab: {fileID: 7902638396223373001, guid: 4b594c49df030c345a44a734b6ca2f69,
     type: 3}
-  pickupMaterials: []
+  pickupMaterials:
+  - {fileID: 2100000, guid: b358a765bb561514cba3db9e9762bc4c, type: 2}
+  - {fileID: 2100000, guid: eeb5445287ab3b44481662d6d7febadf, type: 2}
 --- !u!4 &1534188072
 Transform:
   m_ObjectHideFlags: 0
