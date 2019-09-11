@@ -31,6 +31,8 @@ namespace BattleCity
 
 		public static event System.Action<EnemyTank> onDestroyed = delegate {};
 
+		public static bool AreAllEnemyTanksFrozen { get; set; } = false;
+
 
 
 		protected override void OnEnable()
@@ -223,14 +225,14 @@ namespace BattleCity
 		{
 
 			// fire bullet at target
-			if (this.CanFire)
+			if (this.CanFire && ! AreAllEnemyTanksFrozen)
 			{
 				if (this.IsAnyTargetVisible())
 					this.TryFire();
 			}
 
 			// fire bullets randomly
-			if (this.fireRandomly && this.CanFire)
+			if (this.fireRandomly && this.CanFire && ! AreAllEnemyTanksFrozen)
 			{
 				if (this.TimeSinceFired >= m_intervalToFireRandomly)
 				{
@@ -248,6 +250,8 @@ namespace BattleCity
 
 		void FixedUpdate()
 		{
+			if (AreAllEnemyTanksFrozen)
+				return;
 
 			// check if block in front of the tank is taken
 			Vector2 nextBlockPos = m_currentPos + m_currentDir;
