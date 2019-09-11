@@ -1783,9 +1783,11 @@ MonoBehaviour:
   fireInterval: 0.5
   firePosition: {fileID: 7967836517388504166}
   bulletVelocity: 4
+  bulletDamage: 50
   bulletLayerName: PlayerBullet
   health: 100
   shieldGameObject: {fileID: 5991015384663333616}
+  shieldRotationSpeed: 90
 --- !u!143 &3171917582437830097
 CharacterController:
   m_ObjectHideFlags: 0

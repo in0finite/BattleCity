@@ -10,11 +10,9 @@
 
 ***
 
-- implement pickups: strength increase / stronger bullet, shield, ~~fortify base~~, freeze enemy tanks
+- implement pickups: ~~fortify base~~
 
 - prevent **possible** collision between bullet and shooter tank
 
 - attach halo to bullet
-
-- pickups should be destroyed on some interval
 

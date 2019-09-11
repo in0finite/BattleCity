@@ -3707,10 +3707,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d20244162f8014fbc1c86bfe7b463e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.5
   fireInterval: 0.5
   firePosition: {fileID: 4366494305118741915}
   bulletVelocity: 4
+  bulletDamage: 50
   bulletLayerName: EnemyBullet
   health: 100
   minNumBlocksUntilRandomTurn: 5
