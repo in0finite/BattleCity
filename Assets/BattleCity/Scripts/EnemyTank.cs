@@ -277,7 +277,7 @@ namespace BattleCity
 					}
 					else
 					{
-						Debug.LogWarningFormat("skipped direction changing");
+					//	Debug.LogWarningFormat("skipped direction changing");
 					}
 				}
 				else

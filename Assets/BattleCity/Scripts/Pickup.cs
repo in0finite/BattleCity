@@ -21,7 +21,7 @@ namespace BattleCity
 
 			Destroy(this.gameObject);
 
-			Debug.LogWarningFormat("Collision with pickup");
+		//	Debug.LogWarningFormat("Collision with pickup");
 
 			this.onCollided();
 
