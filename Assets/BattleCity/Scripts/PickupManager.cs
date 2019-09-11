@@ -18,6 +18,7 @@ namespace BattleCity
 		System.Action[] m_pickupActions = new System.Action[]{
 			OnStarPickedUp,
 			OnFreezePickedUp,
+			OnShieldPickedUp,
 		};
 
 
@@ -81,7 +82,7 @@ namespace BattleCity
 			var pickup = MapManager.SpawnMapObject(this.pickupPrefab, pos).GetComponent<Pickup>();
 
 			// choose type of pickup
-			int index = Random.Range(0, 2);
+			int index = Random.Range(0, m_pickupActions.Length);
 
 			// assign material
 			pickup.GetComponent<MeshRenderer>().sharedMaterial = this.pickupMaterials[index];
@@ -100,7 +101,7 @@ namespace BattleCity
 		static void OnFreezePickedUp()
 		{
 			EnemyTank.AreAllEnemyTanksFrozen = true;
-			
+
 			Instance.CancelInvoke(nameof(CancelFreeze));
 			Instance.Invoke(nameof(CancelFreeze), 8f);
 		}
@@ -108,6 +109,23 @@ namespace BattleCity
 		void CancelFreeze()
 		{
 			EnemyTank.AreAllEnemyTanksFrozen = false;
+		}
+
+		static void OnShieldPickedUp()
+		{
+			if (PlayerTank.Instance != null)
+			{
+				PlayerTank.Instance.HasShield = true;
+
+				Instance.CancelInvoke(nameof(CancelShield));
+				Instance.Invoke(nameof(CancelShield), 8f);
+			}
+		}
+
+		void CancelShield()
+		{
+			if (PlayerTank.Instance != null)
+				PlayerTank.Instance.HasShield = false;
 		}
 
 	}

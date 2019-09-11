@@ -733,6 +733,7 @@ MonoBehaviour:
   pickupMaterials:
   - {fileID: 2100000, guid: b358a765bb561514cba3db9e9762bc4c, type: 2}
   - {fileID: 2100000, guid: eeb5445287ab3b44481662d6d7febadf, type: 2}
+  - {fileID: 2100000, guid: b107634e36ee80b4e955a8a171c98e3b, type: 2}
 --- !u!4 &1534188072
 Transform:
   m_ObjectHideFlags: 0
