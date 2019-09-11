@@ -31,12 +31,18 @@ namespace BattleCity
 		{
 			base.Start();
 
+			// save shield material
+			Material savedShieldMaterial = this.shieldGameObject.GetComponent<Renderer>().sharedMaterial;
+
 			// set material
 			foreach(var mr in this.GetComponentsInChildren<MeshRenderer>())
 			{
 				mr.sharedMaterial = MapManager.Instance.playerTankMaterial;
 			}
 
+			// restore shield material
+			this.shieldGameObject.GetComponent<Renderer>().sharedMaterial = savedShieldMaterial;
+			
 		}
 
 		public override void OnCollidedWithBullet(Bullet bullet)
