@@ -112,12 +112,8 @@ namespace BattleCity
 					char c = lines[i][j];
 					if (dict.ContainsKey(c))
 					{
-						Vector2 pos = new Vector2(j, height - i - 1);
-						GameObject go = Instantiate( dict[c], new Vector3(pos.x, 0f, pos.y), Quaternion.identity);
-						var mapObject = go.GetComponent<MapObject>();
-						mapObject.Position = pos;
-
-						m_mapObjects[j, height - i - 1] = mapObject;
+						Vector2Int pos = new Vector2Int(j, height - i - 1);
+						SpawnMapObject(dict[c], pos);
 					}
 				}
 			}
@@ -141,6 +137,15 @@ namespace BattleCity
 
 			Debug.LogFormat("LoadLevel() finished");
 
+		}
+
+		public static void SpawnMapObject(GameObject prefab, Vector2Int pos)
+		{
+			GameObject go = Instantiate( prefab, new Vector3(pos.x, 0f, pos.y), Quaternion.identity);
+			var mapObject = go.GetComponent<MapObject>();
+			mapObject.Position = pos;
+
+			m_mapObjects[pos.x, pos.y] = mapObject;
 		}
 
 		static void SpawnPlayerTank()
