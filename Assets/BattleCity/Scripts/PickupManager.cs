@@ -21,6 +21,8 @@ namespace BattleCity
 			OnShieldPickedUp,
 		};
 
+		public float pickupLifeTime = 10f;
+
 		public float freezePickupDuration = 8f;
 		public float shieldPickupDuration = 10f;
 
@@ -92,6 +94,9 @@ namespace BattleCity
 
 			// assign action on collision
 			pickup.onCollided += m_pickupActions[index];
+
+			// destroy pickup when it's lifetime expires
+			Destroy(pickup.gameObject, this.pickupLifeTime);
 
 			Debug.LogFormat("Spawned pickup {0} at {1}", index, pos);
 		}
