@@ -37,6 +37,8 @@ namespace BattleCity
 
 		public static bool IsMapOpened => SceneManager.GetActiveScene().name == "Map";
 
+		public static event System.Action onLevelLoaded = delegate {};
+
 
 
 		void Awake()
@@ -137,15 +139,19 @@ namespace BattleCity
 
 			Debug.LogFormat("LoadLevel() finished");
 
+			onLevelLoaded();
+
 		}
 
-		public static void SpawnMapObject(GameObject prefab, Vector2Int pos)
+		public static MapObject SpawnMapObject(GameObject prefab, Vector2Int pos)
 		{
 			GameObject go = Instantiate( prefab, new Vector3(pos.x, 0f, pos.y), Quaternion.identity);
 			var mapObject = go.GetComponent<MapObject>();
 			mapObject.Position = pos;
 
 			m_mapObjects[pos.x, pos.y] = mapObject;
+
+			return mapObject;
 		}
 
 		static void SpawnPlayerTank()

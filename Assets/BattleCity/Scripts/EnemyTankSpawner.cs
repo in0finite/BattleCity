@@ -8,6 +8,8 @@ namespace BattleCity
 	
 	public class EnemyTankSpawner : MonoBehaviour
 	{
+		public static EnemyTankSpawner Instance { get; private set; }
+
 		public float spawnInterval = 4f;
 		public int maxNumTanksAtATime = 4;
 		public int numTanksPerLevel = 20;
@@ -15,9 +17,10 @@ namespace BattleCity
 		int m_numTanksSpawned = 0;
 
 
+
 		void Awake()
 		{
-			
+			Instance = this;
 		}
 		
 		void Start()

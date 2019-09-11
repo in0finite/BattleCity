@@ -29,6 +29,8 @@ namespace BattleCity
 		static List<EnemyTank> s_allTanks = new List<EnemyTank>();
 		public static List<EnemyTank> AllTanks => s_allTanks;
 
+		public static event System.Action<EnemyTank> onDestroyed = delegate {};
+
 
 
 		protected override void OnEnable()
@@ -41,6 +43,7 @@ namespace BattleCity
 		{
 			s_allTanks.Remove(this);
 			base.OnDisable();
+			onDestroyed(this);
 		}
 
 		protected override void Start()
