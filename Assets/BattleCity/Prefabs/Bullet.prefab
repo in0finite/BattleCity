@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8149919164970947151}
   - component: {fileID: 8408401277911664469}
   - component: {fileID: 127824231217961643}
+  - component: {fileID: 3776942335077591059}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -50,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6539255144000908965}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -122,3 +123,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+--- !u!122 &3776942335077591059
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539255144000908965}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278244095
+  m_Size: 0.11

@@ -16,3 +16,5 @@
 
 - attach halo to bullet
 
+- don't create pickups from OnDisable()
+
