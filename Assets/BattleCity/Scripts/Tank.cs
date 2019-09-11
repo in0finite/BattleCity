@@ -11,6 +11,7 @@ namespace BattleCity
 		public float fireInterval = 0.5f;
 		public Transform firePosition;
 		public float bulletVelocity = 4f;
+		public float bulletDamage = 50f;
 		public string bulletLayerName = "";
 		public float health = 100f;
 
@@ -19,11 +20,16 @@ namespace BattleCity
 
 		public bool CanFire => this.TimeSinceFired >= this.fireInterval;
 
+		float m_originalHealth, m_originalMoveSpeed, m_originalBulletVelocity, m_originalBulletDamage;
+
 
 
 		protected virtual void Awake()
 		{
-			
+			m_originalHealth = this.health;
+			m_originalMoveSpeed = this.moveSpeed;
+			m_originalBulletVelocity = this.bulletVelocity;
+			m_originalBulletDamage = this.bulletDamage;
 		}
 
 		protected virtual void OnEnable()
@@ -70,10 +76,24 @@ namespace BattleCity
 				m_timeWhenFired = Time.time;
 				GameObject bulletGo = Instantiate(MapManager.Instance.bulletPrefab, this.firePosition.position, this.firePosition.rotation);
 				bulletGo.layer = LayerMask.NameToLayer(this.bulletLayerName);
-				bulletGo.GetComponent<Bullet>().TankShooter = this;
+				Bullet bullet = bulletGo.GetComponent<Bullet>();
+				bullet.TankShooter = this;
+				bullet.damage = this.bulletDamage;
 				bulletGo.GetComponent<Rigidbody>().velocity = bulletGo.transform.forward * this.bulletVelocity;
 
 			}
+
+		}
+
+		public void SetParamsBasedOnCurrentLevel()
+		{
+			int currentLevel = MapManager.CurrentLevel;
+			int levelMul = currentLevel - 1;
+
+			this.health = m_originalHealth * (1 + levelMul * 0.33f);
+			this.moveSpeed = m_originalMoveSpeed * (1 + levelMul * 0.25f);
+			this.bulletVelocity = m_originalBulletVelocity * (1 + levelMul * 0.25f);
+			this.bulletDamage = m_originalBulletDamage * (1 + levelMul * 0.25f);
 
 		}
 		

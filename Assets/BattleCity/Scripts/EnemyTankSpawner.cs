@@ -52,8 +52,10 @@ namespace BattleCity
 				EnemySpawn[] spawns = MapManager.MapObjects.OfType<EnemySpawn>().ToArray();
 				EnemySpawn spawn = spawns[ Random.Range(0, spawns.Length) ];
 
-				Instantiate(MapManager.Instance.enemyTankPrefab, new Vector3(spawn.transform.position.x, MapManager.Instance.enemyTankPrefab.transform.position.y, spawn.transform.position.z), 
-					Quaternion.LookRotation(-Vector3.forward));
+				EnemyTank enemyTank = Instantiate(MapManager.Instance.enemyTankPrefab, new Vector3(spawn.transform.position.x, MapManager.Instance.enemyTankPrefab.transform.position.y, spawn.transform.position.z), 
+					Quaternion.LookRotation(-Vector3.forward)).GetComponent<EnemyTank>();
+				
+				enemyTank.SetParamsBasedOnCurrentLevel();
 
 			}
 		}
