@@ -14,3 +14,5 @@
 
 - prevent **possible** collision between bullet and shooter tank
 
+- attach halo to bullet
+

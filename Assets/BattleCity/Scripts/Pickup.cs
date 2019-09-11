@@ -12,7 +12,7 @@ namespace BattleCity
 		public event System.Action onCollided = delegate {};
 
 
-		void OnCollisionEnter(Collision collision)
+		void OnTriggerEnter(Collider collider)
 		{
 			if (m_collided)
 				return;
@@ -21,7 +21,7 @@ namespace BattleCity
 
 			Destroy(this.gameObject);
 
-			Debug.LogFormat("Collision with pickup");
+			Debug.LogWarningFormat("Collision with pickup");
 
 			this.onCollided();
 
