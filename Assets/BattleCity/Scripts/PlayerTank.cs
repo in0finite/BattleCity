@@ -15,6 +15,7 @@ namespace BattleCity
 
 		public bool HasShield { get; set; } = false;
 		public GameObject shieldGameObject;
+		public float shieldRotationSpeed = 60f;
 
 
 
@@ -81,7 +82,7 @@ namespace BattleCity
 			if (this.HasShield)
 			{
 				// rotate shield
-				this.shieldGameObject.transform.Rotate(new Vector3(30f * Time.deltaTime, 0f, 0f));
+				this.shieldGameObject.transform.Rotate(new Vector3(this.shieldRotationSpeed * Time.deltaTime, 0f, 0f));
 			}
 
 		}
