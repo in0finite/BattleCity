@@ -44,7 +44,11 @@ namespace BattleCity
 
 		public virtual void OnCollidedWithBullet(Bullet bullet)
 		{
+			if (this.health <= 0f)
+				return;
+			
 			this.health -= bullet.damage;
+			
 			if (this.health <= 0f)
 			{
 				Destroy(this.gameObject);
