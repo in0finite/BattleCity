@@ -34,11 +34,9 @@ namespace BattleCity
 
 		}
 
-		public override void OnCollidedWithBullet(Bullet bullet)
+		protected override void OnKilled(Bullet bullet)
 		{
-			base.OnCollidedWithBullet(bullet);
-			if (this.health <= 0f)
-				MapManager.OnPlayerTankDestroyed();
+			MapManager.OnPlayerTankDestroyed();
 		}
 
 		void FixedUpdate()

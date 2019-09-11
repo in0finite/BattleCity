@@ -46,7 +46,15 @@ namespace BattleCity
 		{
 			this.health -= bullet.damage;
 			if (this.health <= 0f)
+			{
 				Destroy(this.gameObject);
+				this.OnKilled(bullet);
+			}
+		}
+
+		protected virtual void OnKilled(Bullet bullet)
+		{
+
 		}
 
 		public virtual void TryFire()
