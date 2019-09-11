@@ -95,7 +95,18 @@ namespace BattleCity
 		
 		static void OnStarPickedUp()
 		{
+			PlayerTank tank = PlayerTank.Instance;
+			if (tank != null)
+			{
+				// 3 levels of strength/damage (0.17 * 3 = 0.51)
 
+				float newPerc = Mathf.Min( tank.GetHealthPerc() + 0.17f, 1.5f );
+				tank.SetHealthPerc(newPerc);
+
+				newPerc = Mathf.Min( tank.GetBulletDamagePerc() + 0.17f, 1.5f );
+				tank.SetBulletDamagePerc(newPerc);
+
+			}
 		}
 
 		static void OnFreezePickedUp()

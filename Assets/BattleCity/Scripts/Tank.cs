@@ -96,6 +96,36 @@ namespace BattleCity
 			this.bulletDamage = m_originalBulletDamage * (1 + levelMul * 0.25f);
 
 		}
+
+		public void IncreaseHealth(float perc)
+		{
+			this.health += m_originalHealth * perc;
+		}
+
+		public void IncreaseBulletDamage(float perc)
+		{
+			this.bulletDamage += m_originalBulletDamage * perc;
+		}
+
+		public float GetHealthPerc()
+		{
+			return this.health / m_originalHealth;
+		}
+
+		public void SetHealthPerc(float perc)
+		{
+			this.health = m_originalHealth * perc;
+		}
+
+		public float GetBulletDamagePerc()
+		{
+			return this.bulletDamage / m_originalBulletDamage;
+		}
+
+		public void SetBulletDamagePerc(float perc)
+		{
+			this.bulletDamage = m_originalBulletDamage * perc;
+		}
 		
 	}
 
