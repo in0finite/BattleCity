@@ -16,3 +16,5 @@
 
 - attach halo to bullet
 
+- pickups should be destroyed on some interval
+

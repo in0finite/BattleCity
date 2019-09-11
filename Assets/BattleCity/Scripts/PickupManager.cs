@@ -21,6 +21,9 @@ namespace BattleCity
 			OnShieldPickedUp,
 		};
 
+		public float freezePickupDuration = 8f;
+		public float shieldPickupDuration = 10f;
+
 
 
 		void Awake()
@@ -114,7 +117,7 @@ namespace BattleCity
 			EnemyTank.AreAllEnemyTanksFrozen = true;
 
 			Instance.CancelInvoke(nameof(CancelFreeze));
-			Instance.Invoke(nameof(CancelFreeze), 8f);
+			Instance.Invoke(nameof(CancelFreeze), Instance.freezePickupDuration);
 		}
 
 		void CancelFreeze()
@@ -129,7 +132,7 @@ namespace BattleCity
 				PlayerTank.Instance.HasShield = true;
 
 				Instance.CancelInvoke(nameof(CancelShield));
-				Instance.Invoke(nameof(CancelShield), 8f);
+				Instance.Invoke(nameof(CancelShield), Instance.shieldPickupDuration);
 			}
 		}
 
