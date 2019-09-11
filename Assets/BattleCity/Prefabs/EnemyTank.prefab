@@ -3720,9 +3720,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 53543
   raycastPosition: {fileID: 1746205575164253813}
-  fireRandomly: 0
+  fireRandomly: 1
   minIntervalToFireRandomly: 3
-  maxIntervalToFireRandomly: 7
+  maxIntervalToFireRandomly: 5
 --- !u!143 &884260499533021386
 CharacterController:
   m_ObjectHideFlags: 0
