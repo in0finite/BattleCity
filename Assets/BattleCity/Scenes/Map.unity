@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20e8056819e02f4892fcf90a253e5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPickupsPerLevel: 2
+  numPickupsPerLevel: 3
   pickupPrefab: {fileID: 7902638396223373001, guid: 4b594c49df030c345a44a734b6ca2f69,
     type: 3}
   pickupMaterials:
