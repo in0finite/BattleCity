@@ -7,7 +7,8 @@ namespace BattleCity
 	
 	public class PickupManager : MonoBehaviour
 	{
-		
+		public static PickupManager Instance { get; private set; }
+
 		int m_numEnemyTanksDestroyed = 0;
 		public int numPickupsPerLevel = 2;
 
@@ -20,6 +21,11 @@ namespace BattleCity
 		};
 
 
+
+		void Awake()
+		{
+			Instance = this;
+		}
 
 		void OnEnable()
 		{
@@ -36,6 +42,7 @@ namespace BattleCity
 		void OnLevelLoaded()
 		{
 			m_numEnemyTanksDestroyed = 0;
+			EnemyTank.AreAllEnemyTanksFrozen = false;
 		}
 
 		void OnEnemyTankDestroyed(EnemyTank enemyTank)
@@ -92,7 +99,15 @@ namespace BattleCity
 
 		static void OnFreezePickedUp()
 		{
+			EnemyTank.AreAllEnemyTanksFrozen = true;
+			
+			Instance.CancelInvoke(nameof(CancelFreeze));
+			Instance.Invoke(nameof(CancelFreeze), 8f);
+		}
 
+		void CancelFreeze()
+		{
+			EnemyTank.AreAllEnemyTanksFrozen = false;
 		}
 
 	}
