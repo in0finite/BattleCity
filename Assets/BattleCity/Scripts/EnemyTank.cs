@@ -26,7 +26,22 @@ namespace BattleCity
 		public float maxIntervalToFireRandomly = 7;
 		float m_intervalToFireRandomly = 100;
 
+		static List<EnemyTank> s_allTanks = new List<EnemyTank>();
+		public static List<EnemyTank> AllTanks => s_allTanks;
 
+
+
+		protected override void OnEnable()
+		{
+			base.OnEnable();
+			s_allTanks.Add(this);
+		}
+
+		protected override void OnDisable()
+		{
+			s_allTanks.Remove(this);
+			base.OnDisable();
+		}
 
 		protected override void Start()
 		{
