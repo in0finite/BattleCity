@@ -13,6 +13,10 @@ namespace BattleCity
 
 		CharacterController m_cc;
 
+		public bool HasShield { get; set; } = false;
+		public GameObject shieldGameObject;
+
+
 
 		protected override void Awake()
 		{
@@ -32,6 +36,13 @@ namespace BattleCity
 				mr.sharedMaterial = MapManager.Instance.playerTankMaterial;
 			}
 
+		}
+
+		public override void OnCollidedWithBullet(Bullet bullet)
+		{
+			if (this.HasShield)
+				return;
+			base.OnCollidedWithBullet(bullet);
 		}
 
 		protected override void OnKilled(Bullet bullet)
@@ -64,6 +75,13 @@ namespace BattleCity
 			if (Input.GetButton("Submit"))
 			{
 				this.TryFire();
+			}
+
+			this.shieldGameObject.SetActive(this.HasShield);
+			if (this.HasShield)
+			{
+				// rotate shield
+				this.shieldGameObject.transform.Rotate(new Vector3(30f * Time.deltaTime, 0f, 0f));
 			}
 
 		}
