@@ -42,7 +42,7 @@ namespace BattleCity
 
 			// restore shield material
 			this.shieldGameObject.GetComponent<Renderer>().sharedMaterial = savedShieldMaterial;
-			
+
 		}
 
 		public override void OnCollidedWithBullet(Bullet bullet)
@@ -88,7 +88,8 @@ namespace BattleCity
 			if (this.HasShield)
 			{
 				// rotate shield
-				this.shieldGameObject.transform.Rotate(new Vector3(this.shieldRotationSpeed * Time.deltaTime, 0f, 0f));
+				float rotateAmount = this.shieldRotationSpeed * Time.deltaTime;
+				this.shieldGameObject.transform.Rotate(new Vector3(rotateAmount, rotateAmount, 0f));
 			}
 
 		}
