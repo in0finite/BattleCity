@@ -3710,7 +3710,7 @@ MonoBehaviour:
   moveSpeed: 1.5
   fireInterval: 0.5
   firePosition: {fileID: 4366494305118741915}
-  bulletVelocity: 4
+  bulletVelocity: 5
   bulletDamage: 50
   bulletLayerName: EnemyBullet
   health: 100

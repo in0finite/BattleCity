@@ -1782,7 +1782,7 @@ MonoBehaviour:
   moveSpeed: 2
   fireInterval: 0.5
   firePosition: {fileID: 7967836517388504166}
-  bulletVelocity: 4
+  bulletVelocity: 5
   bulletDamage: 50
   bulletLayerName: PlayerBullet
   health: 100
