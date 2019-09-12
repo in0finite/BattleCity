@@ -189,9 +189,19 @@ namespace BattleCity
 			if (CurrentLevel <= 1)
 				CameraManager.Instance.SwitchToSideView();
 
-			// spawn player tank
 			if (null == PlayerTank.Instance)
+			{
 				SpawnPlayerTank();
+			}
+			else
+			{
+				// reset position of player tank
+				Transform tr = PlayerTank.Instance.transform;
+				Vector3 pos = FindObjectOfType<PlayerSpawn>().transform.position;
+				pos.y = tr.position.y;
+				tr.position = pos;
+				tr.rotation = Quaternion.identity;
+			}
 
 			s_isLoadingLevel = false;
 
