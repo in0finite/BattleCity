@@ -23,6 +23,8 @@ namespace BattleCity
 
 		static bool s_isLoadingLevel = false;
 
+		static List<string> s_availableLevels = new List<string>();
+
 		static int m_mapWidth, m_mapHeight;
 		public static int MapWidth => m_mapWidth;
 		public static int MapHeight => m_mapHeight;
@@ -51,6 +53,12 @@ namespace BattleCity
 			Instance = this;
 
 			s_isLoadingLevel = false;	// just in case
+
+			// find available levels
+			s_availableLevels = System.IO.Directory.GetFiles(Application.streamingAssetsPath)
+				.Where(str => str.Contains("level") && str.EndsWith(".txt"))
+				.OrderBy(str => str)
+				.ToList();
 
 		}
 
@@ -112,7 +120,9 @@ namespace BattleCity
 
 		static void LoadLevel(float timeToWaitBeforeLoading)
 		{
-			string path = System.IO.Path.Combine(Application.streamingAssetsPath, "level" + CurrentLevel + ".txt");
+		//	string path = System.IO.Path.Combine(Application.streamingAssetsPath, "level" + CurrentLevel + ".txt");
+			int index = (CurrentLevel - 1) % s_availableLevels.Count;
+			string path = s_availableLevels[index];
 			LoadLevel(System.IO.File.ReadAllLines(path), timeToWaitBeforeLoading);
 		}
 
