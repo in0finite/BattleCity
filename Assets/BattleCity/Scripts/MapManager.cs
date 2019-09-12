@@ -49,6 +49,9 @@ namespace BattleCity
 		void Awake()
 		{
 			Instance = this;
+
+			m_isLoadingLevel = false;	// just in case
+			
 		}
 
 		void OnEnable()
