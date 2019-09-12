@@ -176,7 +176,8 @@ namespace BattleCity
 			groundTransform.position = new Vector3(width / 2f - 0.5f, groundTransform.position.y, height / 2f - 0.5f);
 
 			// set camera position
-			CameraManager.Instance.SwitchToSideView();
+			if (CurrentLevel <= 1)
+				CameraManager.Instance.SwitchToSideView();
 
 			// spawn player tank
 			if (null == PlayerTank.Instance)
