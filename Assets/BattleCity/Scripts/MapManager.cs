@@ -21,7 +21,7 @@ namespace BattleCity
 
 		public float timeToWaitBeforeLoadingNextLevel = 4f;
 
-		static bool m_isLoadingLevel = false;
+		static bool s_isLoadingLevel = false;
 
 		static int m_mapWidth, m_mapHeight;
 		public static int MapWidth => m_mapWidth;
@@ -50,8 +50,8 @@ namespace BattleCity
 		{
 			Instance = this;
 
-			m_isLoadingLevel = false;	// just in case
-			
+			s_isLoadingLevel = false;	// just in case
+
 		}
 
 		void OnEnable()
@@ -87,7 +87,7 @@ namespace BattleCity
 		void Update()
 		{
 
-			if (!m_isLoadingLevel)
+			if (!s_isLoadingLevel)
 			{
 				if (EnemyTank.AllTanks.Count < 1 && EnemyTankSpawner.Instance.NumTanksLeftToSpawn < 1)
 				{
@@ -124,7 +124,7 @@ namespace BattleCity
 		static System.Collections.IEnumerator LoadLevelCoroutine(string[] lines, float timeToWaitBeforeLoading)
 		{
 
-			m_isLoadingLevel = true;
+			s_isLoadingLevel = true;
 
 			yield return null;
 			yield return new WaitForSeconds(timeToWaitBeforeLoading);
@@ -181,7 +181,7 @@ namespace BattleCity
 			// spawn player tank
 			SpawnPlayerTank();
 
-			m_isLoadingLevel = false;
+			s_isLoadingLevel = false;
 
 			Debug.LogFormat("LoadLevel() finished");
 
