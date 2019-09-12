@@ -60,6 +60,9 @@ namespace BattleCity
 
 			IsGameOver = false;
 
+			CurrentScore = 0;
+			CurrentLevel = 1;
+
 			// find available levels
 			s_availableLevels = System.IO.Directory.GetFiles(Application.streamingAssetsPath)
 				.Where(str => str.Contains("level") && str.EndsWith(".txt"))
