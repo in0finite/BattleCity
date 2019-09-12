@@ -12,6 +12,7 @@ namespace BattleCity
 		float m_originalYPos;
 
 		CharacterController m_cc;
+		public CharacterController CController => m_cc;
 
 		public bool HasShield { get; set; } = false;
 		public GameObject shieldGameObject;
