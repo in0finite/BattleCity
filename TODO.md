@@ -1,11 +1,13 @@
 
+- add more levels
+
 - sound effects ; music
 
 - score menu
 
 - pause menu
 
-- advancing levels - enhance enemy tanks' abilities ;
+- HUD - display: score, health, damage, level, num enemy tanks left, num lifes left, 
 
 
 ***
@@ -15,4 +17,8 @@
 - prevent **possible** collision between bullet and shooter tank
 
 - don't create pickups from OnDisable()
+
+- restore health & num lifes when level changes
+
+- reduce enemy health bonus ; increase player bonuses ; increase pickups ;
 

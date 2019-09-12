@@ -107,7 +107,7 @@ namespace BattleCity
 
 		public static void StartFirstLevel()
 		{
-			MenuManager.ActiveMenu = null;
+			MenuManager.ActiveMenu = InGameMenu.Instance;
 			SceneManager.LoadScene("Map");
 		}
 
