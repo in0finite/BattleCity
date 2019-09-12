@@ -90,9 +90,9 @@ namespace BattleCity
 			int currentLevel = MapManager.CurrentLevel;
 			int levelMul = currentLevel - 1;
 
-			this.health = m_originalHealth * (1 + levelMul * 0.33f);
+			this.health = m_originalHealth * (1 + levelMul * 0.2f);
 			this.moveSpeed = m_originalMoveSpeed * (1 + levelMul * 0.25f);
-			this.bulletVelocity = m_originalBulletVelocity * (1 + levelMul * 0.25f);
+			this.bulletVelocity = m_originalBulletVelocity * (1 + levelMul * 0.1f);
 			this.bulletDamage = m_originalBulletDamage * (1 + levelMul * 0.25f);
 
 		}
