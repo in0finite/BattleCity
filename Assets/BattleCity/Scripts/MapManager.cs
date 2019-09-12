@@ -25,6 +25,7 @@ namespace BattleCity
 		public int startingNumLifes = 3;
 
 		static bool s_isLoadingLevel = false;
+		public static bool IsGameOver { get; private set; } = false;
 
 		static List<string> s_availableLevels = new List<string>();
 
@@ -56,6 +57,8 @@ namespace BattleCity
 			Instance = this;
 
 			s_isLoadingLevel = false;	// just in case
+
+			IsGameOver = false;
 
 			// find available levels
 			s_availableLevels = System.IO.Directory.GetFiles(Application.streamingAssetsPath)
@@ -249,12 +252,16 @@ namespace BattleCity
 
 		public static void OnPlayerTankDestroyed()
 		{
+			if (IsGameOver)
+				return;
+			
 			NumLifes --;
 			if (NumLifes <= 0)
 			{
 				// game over
-				Debug.LogFormat("Game over");
-
+				IsGameOver = true;
+				Debug.LogFormat("Game over - out of lifes");
+				OnGameOver();
 				return;
 			}
 
@@ -268,6 +275,11 @@ namespace BattleCity
 			if (PlayerTank.Instance != null)
 				return;
 			SpawnPlayerTank();
+		}
+
+		static void OnGameOver()
+		{
+
 		}
 		
 	}
