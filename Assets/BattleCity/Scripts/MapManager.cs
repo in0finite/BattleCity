@@ -73,7 +73,7 @@ namespace BattleCity
 			{
 				CurrentLevel = 1;
 				CurrentScore = 0;
-				LoadLevel();
+				LoadLevel(0f);
 			}
 		}
 
@@ -88,21 +88,22 @@ namespace BattleCity
 			SceneManager.LoadScene("Map");
 		}
 
-		static void LoadLevel()
+		static void LoadLevel(float timeToWaitBeforeLoading)
 		{
 			string path = System.IO.Path.Combine(Application.streamingAssetsPath, "level" + CurrentLevel + ".txt");
-			LoadLevel(System.IO.File.ReadAllLines(path));
+			LoadLevel(System.IO.File.ReadAllLines(path), timeToWaitBeforeLoading);
 		}
 
-		static void LoadLevel(string[] lines)
+		static void LoadLevel(string[] lines, float timeToWaitBeforeLoading)
 		{
-			Instance.StartCoroutine(LoadLevelCoroutine(lines));
+			Instance.StartCoroutine(LoadLevelCoroutine(lines, timeToWaitBeforeLoading));
 		}
 
-		static System.Collections.IEnumerator LoadLevelCoroutine(string[] lines)
+		static System.Collections.IEnumerator LoadLevelCoroutine(string[] lines, float timeToWaitBeforeLoading)
 		{
 
 			yield return null;
+			yield return new WaitForSeconds(timeToWaitBeforeLoading);
 
 			// first destroy all existing objects
 			foreach(GameObject go in FindObjectsOfType<MapObject>().Select(obj => obj.gameObject).Concat(FindObjectsOfType<Tank>().Select(obj => obj.gameObject)))
