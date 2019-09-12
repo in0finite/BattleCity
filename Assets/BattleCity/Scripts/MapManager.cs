@@ -179,7 +179,8 @@ namespace BattleCity
 			CameraManager.Instance.SwitchToSideView();
 
 			// spawn player tank
-			SpawnPlayerTank();
+			if (null == PlayerTank.Instance)
+				SpawnPlayerTank();
 
 			s_isLoadingLevel = false;
 
