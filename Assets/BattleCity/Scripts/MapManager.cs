@@ -196,15 +196,21 @@ namespace BattleCity
 			else
 			{
 				// reset position of player tank
-				
-				Transform tr = PlayerTank.Instance.transform;
+				PlayerTank tank = PlayerTank.Instance;
+
+				Transform tr = tank.transform;
 				Vector3 pos = FindObjectOfType<PlayerSpawn>().transform.position;
 				pos.y = tr.position.y;
 
-				PlayerTank.Instance.CController.enabled = false;
+				tank.CController.enabled = false;
 				tr.position = pos;
 				tr.rotation = Quaternion.identity;
-				PlayerTank.Instance.CController.enabled = true;
+				tank.CController.enabled = true;
+
+				// restore health
+				if (tank.GetHealthPerc() < 1)
+					tank.SetHealthPerc(1);
+
 			}
 
 			s_isLoadingLevel = false;
