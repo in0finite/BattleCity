@@ -17,7 +17,7 @@ namespace BattleCity
 
 		void Awake()
 		{
-			Debug.LogFormat("Bullet.Awake()");
+		//	Debug.LogFormat("Bullet.Awake()");
 		}
 
 		void OnEnable()
@@ -44,7 +44,7 @@ namespace BattleCity
 			
 			m_collided = true;
 			
-			Debug.LogFormat("Bullet collision with: {0}", collision.gameObject.name);
+		//	Debug.LogFormat("Bullet collision with: {0}", collision.gameObject.name);
 
 			var targetTank = collision.gameObject.GetComponent<Tank>();
 			var targetMapObject = collision.gameObject.GetComponent<MapObject>();
