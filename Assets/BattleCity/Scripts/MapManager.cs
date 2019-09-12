@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 namespace BattleCity
 {
@@ -100,7 +101,16 @@ namespace BattleCity
 
 		static System.Collections.IEnumerator LoadLevelCoroutine(string[] lines)
 		{
-			
+
+			yield return null;
+
+			// first destroy all existing objects
+			foreach(GameObject go in FindObjectsOfType<MapObject>().Select(obj => obj.gameObject).Concat(FindObjectsOfType<Tank>().Select(obj => obj.gameObject)))
+			{
+				Destroy(go);
+			}
+
+			yield return null;
 			yield return null;
 
 			var dict = new Dictionary<char, GameObject>(){
