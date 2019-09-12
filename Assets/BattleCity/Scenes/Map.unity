@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc50cfb71b315944ba686466448268a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 4
+  spawnInterval: 3
   maxNumTanksAtATime: 5
   numTanksPerLevel: 20
 --- !u!4 &402773036
@@ -734,6 +734,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b358a765bb561514cba3db9e9762bc4c, type: 2}
   - {fileID: 2100000, guid: eeb5445287ab3b44481662d6d7febadf, type: 2}
   - {fileID: 2100000, guid: b107634e36ee80b4e955a8a171c98e3b, type: 2}
+  pickupLifeTime: 10
+  freezePickupDuration: 8
+  shieldPickupDuration: 10
 --- !u!4 &1534188072
 Transform:
   m_ObjectHideFlags: 0
