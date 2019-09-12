@@ -24,6 +24,21 @@ namespace BattleCity
 			Instance = this;
 		}
 		
+		void OnEnable()
+		{
+			MapManager.onLevelLoaded += OnLevelLoaded;
+		}
+
+		void OnDisable()
+		{
+			MapManager.onLevelLoaded -= OnLevelLoaded;
+		}
+
+		void OnLevelLoaded()
+		{
+			m_numTanksSpawned = 0;
+		}
+
 		void Start()
 		{
 			this.StartCoroutine(this.SpawnCoroutine());
