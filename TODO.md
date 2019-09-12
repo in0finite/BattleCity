@@ -20,7 +20,7 @@
 
 - don't create pickups from OnDisable()
 
-- restore health & num lifes when level changes
+- restore num lifes when level changes
 
-- reduce enemy health bonus (to 0.1 ?) ; increase player bonuses ; increase pickups ; increase duration of pickup effects ;
+- increase player bonuses ; increase pickups ; increase duration of pickup effects ;
 
