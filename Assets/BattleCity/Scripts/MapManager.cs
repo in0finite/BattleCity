@@ -19,6 +19,10 @@ namespace BattleCity
 
 		public Material playerTankMaterial, enemyTankMaterial;
 
+		public float timeToWaitBeforeLoadingNextLevel = 4f;
+
+		static bool m_isLoadingLevel = false;
+
 		static int m_mapWidth, m_mapHeight;
 		public static int MapWidth => m_mapWidth;
 		public static int MapHeight => m_mapHeight;
@@ -79,13 +83,28 @@ namespace BattleCity
 
 		void Update()
 		{
-			
+
+			if (!m_isLoadingLevel)
+			{
+				if (EnemyTank.AllTanks.Count < 1 && EnemyTankSpawner.Instance.NumTanksLeftToSpawn < 1)
+				{
+					LoadNextLevel();
+				}
+			}
+
 		}
 
 		public static void StartFirstLevel()
 		{
 			MenuManager.ActiveMenu = null;
 			SceneManager.LoadScene("Map");
+		}
+
+		static void LoadNextLevel()
+		{
+			CurrentLevel ++;
+			Debug.LogFormat("Starting to load level {0}", CurrentLevel);
+			LoadLevel(Instance.timeToWaitBeforeLoadingNextLevel);
 		}
 
 		static void LoadLevel(float timeToWaitBeforeLoading)
@@ -102,6 +121,8 @@ namespace BattleCity
 		static System.Collections.IEnumerator LoadLevelCoroutine(string[] lines, float timeToWaitBeforeLoading)
 		{
 
+			m_isLoadingLevel = true;
+
 			yield return null;
 			yield return new WaitForSeconds(timeToWaitBeforeLoading);
 
@@ -113,6 +134,7 @@ namespace BattleCity
 
 			yield return null;
 			yield return null;
+
 
 			var dict = new Dictionary<char, GameObject>(){
 				{'b', Instance.brickPrefab}, {'w', Instance.wallPrefab}, {'~', Instance.waterPrefab}, 
@@ -155,6 +177,8 @@ namespace BattleCity
 
 			// spawn player tank
 			SpawnPlayerTank();
+
+			m_isLoadingLevel = false;
 
 			Debug.LogFormat("LoadLevel() finished");
 

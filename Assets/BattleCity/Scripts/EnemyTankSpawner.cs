@@ -15,6 +15,7 @@ namespace BattleCity
 		public int numTanksPerLevel = 20;
 
 		int m_numTanksSpawned = 0;
+		public int NumTanksLeftToSpawn => this.numTanksPerLevel - m_numTanksSpawned;
 
 
 
