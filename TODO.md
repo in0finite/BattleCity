@@ -22,5 +22,5 @@
 
 - restore num lifes when level changes
 
-- increase player bonuses ; increase pickups ; increase duration of pickup effects ;
+- increase pickups ; increase duration of pickup effects ;
 

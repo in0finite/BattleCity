@@ -12,6 +12,7 @@ namespace BattleCity
 
 		public static int CurrentLevel { get; private set; }
 		public static int CurrentScore { get; set; }
+		public static int NumLifes { get; private set; }
 
 		public GameObject brickPrefab, waterPrefab, wallPrefab, flagPrefab, playerTankPrefab, enemyTankPrefab, playerSpawnPrefab,
 			enemySpawnPrefab;
@@ -20,6 +21,8 @@ namespace BattleCity
 		public Material playerTankMaterial, enemyTankMaterial;
 
 		public float timeToWaitBeforeLoadingNextLevel = 4f;
+
+		public int startingNumLifes = 3;
 
 		static bool s_isLoadingLevel = false;
 
@@ -213,6 +216,9 @@ namespace BattleCity
 
 			}
 
+			// reset num lifes
+			NumLifes = Instance.startingNumLifes;
+
 			s_isLoadingLevel = false;
 
 			Debug.LogFormat("LoadLevel() finished");
@@ -243,8 +249,18 @@ namespace BattleCity
 
 		public static void OnPlayerTankDestroyed()
 		{
+			NumLifes --;
+			if (NumLifes <= 0)
+			{
+				// game over
+				Debug.LogFormat("Game over");
+
+				return;
+			}
+
 			// spawn it later
 			Instance.Invoke(nameof(SpawnPlayerTankLater), 3f);
+
 		}
 
 		void SpawnPlayerTankLater()
