@@ -95,6 +95,14 @@ namespace BattleCity
 
 		static void LoadLevel(string[] lines)
 		{
+			Instance.StartCoroutine(LoadLevelCoroutine(lines));
+		}
+
+		static System.Collections.IEnumerator LoadLevelCoroutine(string[] lines)
+		{
+			
+			yield return null;
+
 			var dict = new Dictionary<char, GameObject>(){
 				{'b', Instance.brickPrefab}, {'w', Instance.wallPrefab}, {'~', Instance.waterPrefab}, 
 				{'f', Instance.flagPrefab},
