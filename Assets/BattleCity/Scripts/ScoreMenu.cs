@@ -88,7 +88,8 @@ namespace BattleCity
 			foreach (var scoreInfo in scoreList)
 			{
 				var scoreEntryGo = Instantiate(this.scoreEntryPrefab, this.scorePanel.transform, false);
-				scoreEntryGo.GetComponent<Text>().text = scoreInfo.playerName + " - " + scoreInfo.score;
+				string text = scoreInfo.playerName + (string.IsNullOrEmpty(scoreInfo.playerName) ? "" : " - ") + scoreInfo.score;
+				scoreEntryGo.GetComponent<Text>().text = text;
 			}
 
 
