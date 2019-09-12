@@ -81,7 +81,7 @@ namespace BattleCity
 			// delete all children
 			for (int i=0; i < this.scorePanel.transform.childCount; i++)
 			{
-				Destroy(this.scorePanel.transform.GetChild(i));
+				Destroy(this.scorePanel.transform.GetChild(i).gameObject);
 			}
 
 			// create children
