@@ -24,7 +24,9 @@ namespace BattleCity
 				// update text
 
 				PlayerTank tank = PlayerTank.Instance;
-				string str = string.Concat("Score ", MapManager.CurrentScore,
+				string str = string.Concat(
+					"Score ", MapManager.CurrentScore,
+					"\nLifes ", MapManager.NumLifes,
 					"\nHealth ", 
 					tank != null ? tank.health.ToString() : "0",
 					"\nDamage ",
