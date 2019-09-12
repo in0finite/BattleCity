@@ -29,22 +29,22 @@ namespace BattleCity
 
 		static List<string> s_availableLevels = new List<string>();
 
-		static int m_mapWidth, m_mapHeight;
-		public static int MapWidth => m_mapWidth;
-		public static int MapHeight => m_mapHeight;
-		static MapObject[,] m_mapObjects;
+		static int s_mapWidth, s_mapHeight;
+		public static int MapWidth => s_mapWidth;
+		public static int MapHeight => s_mapHeight;
+		static MapObject[,] s_mapObjects;
 		public static IEnumerable<MapObject> MapObjects {
 			get {
-				foreach (var obj in m_mapObjects)
+				foreach (var obj in s_mapObjects)
 					if (obj != null)
 						yield return obj;
 			}
 		}
-		public static MapObject GetMapObjectAt(Vector2 pos) => m_mapObjects[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)];
+		public static MapObject GetMapObjectAt(Vector2 pos) => s_mapObjects[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)];
 		public static MapObject GetMapObjectAt(float x, float y) => GetMapObjectAt(new Vector2(x, y));
 
 		public static bool IsInsideMap(Vector2 pos) => IsInsideMap(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y));
-		public static bool IsInsideMap(int x, int y) => x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight;
+		public static bool IsInsideMap(int x, int y) => x >= 0 && y >= 0 && x < s_mapWidth && y < s_mapHeight;
 
 		public static bool IsMapOpened => SceneManager.GetActiveScene().name == "Map";
 
@@ -56,7 +56,7 @@ namespace BattleCity
 		{
 			Instance = this;
 
-			s_isLoadingLevel = false;	// just in case
+			s_isLoadingLevel = false;
 
 			IsGameOver = false;
 
@@ -168,10 +168,10 @@ namespace BattleCity
 				{'e', Instance.enemySpawnPrefab},
 			};
 
-			int width = m_mapWidth = lines[0].Length;
-			int height = m_mapHeight = lines.Length;
+			int width = s_mapWidth = lines[0].Length;
+			int height = s_mapHeight = lines.Length;
 
-			m_mapObjects = new MapObject[width, height];
+			s_mapObjects = new MapObject[width, height];
 
 			for (int i = 0; i < height; i++)
 			{
@@ -242,7 +242,7 @@ namespace BattleCity
 			var mapObject = go.GetComponent<MapObject>();
 			mapObject.Position = pos;
 
-			m_mapObjects[pos.x, pos.y] = mapObject;
+			s_mapObjects[pos.x, pos.y] = mapObject;
 
 			return mapObject;
 		}
