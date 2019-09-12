@@ -279,7 +279,21 @@ namespace BattleCity
 
 		static void OnGameOver()
 		{
+			IsGameOver = true;
 
+			Instance.CancelInvoke(nameof(FinishGameLater));
+			Instance.Invoke(nameof(FinishGameLater), 3f);
+
+		}
+
+		void FinishGameLater()
+		{
+			SceneManager.LoadScene("MainMenu");
+
+			ScoreMenu.Instance.ParentMenu = MainMenu.Instance;
+			ScoreMenu.Instance.CurrentScore = MapManager.CurrentScore;
+			MenuManager.ActiveMenu = ScoreMenu.Instance;
+			
 		}
 		
 	}
