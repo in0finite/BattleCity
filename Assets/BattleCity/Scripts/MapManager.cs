@@ -101,7 +101,7 @@ namespace BattleCity
 		void Update()
 		{
 
-			if (!s_isLoadingLevel)
+			if (!s_isLoadingLevel && !IsGameOver)
 			{
 				if (EnemyTank.AllTanks.Count < 1 && EnemyTankSpawner.Instance.NumTanksLeftToSpawn < 1)
 				{
@@ -119,6 +119,9 @@ namespace BattleCity
 
 		static void LoadNextLevel()
 		{
+			if (IsGameOver)
+				return;
+			
 			CurrentLevel ++;
 			Debug.LogFormat("Starting to load level {0}", CurrentLevel);
 			LoadLevel(Instance.timeToWaitBeforeLoadingNextLevel);
@@ -293,7 +296,7 @@ namespace BattleCity
 			ScoreMenu.Instance.ParentMenu = MainMenu.Instance;
 			ScoreMenu.Instance.CurrentScore = MapManager.CurrentScore;
 			MenuManager.ActiveMenu = ScoreMenu.Instance;
-			
+
 		}
 		
 	}
