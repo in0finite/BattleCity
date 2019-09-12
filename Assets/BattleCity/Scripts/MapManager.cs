@@ -11,7 +11,7 @@ namespace BattleCity
 		public static MapManager Instance { get; private set; }
 
 		public static int CurrentLevel { get; private set; }
-		public static int CurrentScore { get; private set; }
+		public static int CurrentScore { get; set; }
 
 		public GameObject brickPrefab, waterPrefab, wallPrefab, flagPrefab, playerTankPrefab, enemyTankPrefab, playerSpawnPrefab,
 			enemySpawnPrefab;

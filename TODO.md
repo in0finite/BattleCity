@@ -7,7 +7,9 @@
 
 - pause menu
 
-- HUD - display: score, health, damage, level, num enemy tanks left, num lifes left, 
+- HUD - display: num lifes left, 
+
+- game over when flag is destroyed
 
 
 ***
@@ -20,5 +22,5 @@
 
 - restore health & num lifes when level changes
 
-- reduce enemy health bonus ; increase player bonuses ; increase pickups ;
+- reduce enemy health bonus (to 0.1 ?) ; increase player bonuses ; increase pickups ; increase duration of pickup effects ;
 

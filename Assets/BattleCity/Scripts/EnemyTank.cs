@@ -48,6 +48,11 @@ namespace BattleCity
 			onDestroyed(this);
 		}
 
+		protected override void OnKilled(Bullet bullet)
+		{
+			MapManager.CurrentScore ++;
+		}
+
 		protected override void Start()
 		{
 			base.Start();
