@@ -106,12 +106,12 @@ namespace BattleCity
 			PlayerTank tank = PlayerTank.Instance;
 			if (tank != null)
 			{
-				// 3 levels of strength/damage (0.17 * 3 = 0.51)
+				// 3 levels of strength/damage (0.34 * 3 = 1.02)
 
-				float newPerc = Mathf.Min( tank.GetHealthPerc() + 0.17f, 1.5f );
+				float newPerc = Mathf.Min( tank.GetHealthPerc() + 0.34f, 2.0f );
 				tank.SetHealthPerc(newPerc);
 
-				newPerc = Mathf.Min( tank.GetBulletDamagePerc() + 0.17f, 1.5f );
+				newPerc = Mathf.Min( tank.GetBulletDamagePerc() + 0.34f, 2.0f );
 				tank.SetBulletDamagePerc(newPerc);
 
 			}
