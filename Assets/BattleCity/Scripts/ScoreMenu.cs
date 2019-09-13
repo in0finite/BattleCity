@@ -92,7 +92,7 @@ namespace BattleCity
 				var scoreEntryGo = Instantiate(this.scoreEntryPrefab, this.scorePanel.transform, false);
 				string text = scoreInfo.playerName + (string.IsNullOrEmpty(scoreInfo.playerName) ? "" : " - ") + scoreInfo.score;
 				scoreEntryGo.GetComponent<Text>().text = text;
-				if (string.IsNullOrEmpty(scoreInfo.playerName))
+				if (scoreInfo == m_newScoreInfo)
 					scoreEntryGo.GetComponent<Text>().color = this.currentPlayerColor;
 			}
 
