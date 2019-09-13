@@ -14,5 +14,3 @@
 
 - increase pickups ; increase duration of pickup effects ;
 
-- destroy bullets when changing level
-
