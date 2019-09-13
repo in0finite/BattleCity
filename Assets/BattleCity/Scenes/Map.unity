@@ -737,8 +737,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: eeb5445287ab3b44481662d6d7febadf, type: 2}
   - {fileID: 2100000, guid: b107634e36ee80b4e955a8a171c98e3b, type: 2}
   pickupLifeTime: 10
-  freezePickupDuration: 8
-  shieldPickupDuration: 10
+  freezePickupDuration: 10
+  shieldPickupDuration: 12
 --- !u!4 &1534188072
 Transform:
   m_ObjectHideFlags: 0

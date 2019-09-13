@@ -12,5 +12,3 @@
 
 - don't create pickups from OnDisable()
 
-- increase pickups ; increase duration of pickup effects ;
-
