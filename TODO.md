@@ -1,15 +1,7 @@
 
-- add more levels
-
 - sound effects ; music
 
-- score menu
-
-- pause menu
-
 - HUD - display: game over text
-
-- game over when flag is destroyed
 
 - when options menu is opened from pause menu, the game will not be paused
 

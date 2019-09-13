@@ -10,6 +10,7 @@ namespace BattleCity
 		public static InGameMenu Instance { get; private set; }
 
 		public Text hudText;
+		public Text gameOverText;
 
 
 		void Awake()
@@ -36,6 +37,9 @@ namespace BattleCity
 				
 				if (this.hudText.text != str)
 					this.hudText.text = str;
+				
+				// update game-over text
+				this.gameOverText.gameObject.SetActive(MapManager.IsGameOver);
 				
 			}
 
