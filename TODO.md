@@ -12,3 +12,5 @@
 
 - don't create pickups from OnDisable()
 
+- test on low resolutions
+
