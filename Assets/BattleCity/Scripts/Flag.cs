@@ -16,10 +16,11 @@ namespace BattleCity
 
 		public override void OnCollidedWithBullet(Bullet bullet)
 		{
-			// game over
-			Debug.LogFormat("Bullet collided with flag - game over");
-
+			
 			Destroy(this.gameObject);
+
+			MapManager.OnFlagDestroyed();
+
 		}
 		
 	}

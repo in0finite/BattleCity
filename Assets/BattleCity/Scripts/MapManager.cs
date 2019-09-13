@@ -283,6 +283,19 @@ namespace BattleCity
 			SpawnPlayerTank();
 		}
 
+		public static void OnFlagDestroyed()
+		{
+			if (IsGameOver)
+				return;
+			
+			// game over
+
+			Debug.LogFormat("Flag destroyed - game over");
+
+			OnGameOver();
+
+		}
+
 		static void OnGameOver()
 		{
 			IsGameOver = true;
