@@ -101,7 +101,7 @@ namespace BattleCity
 
 		static void SortScoreList(List<ScoreInfo> list)
 		{
-			list.Sort((a, b) => a.score.CompareTo(b.score));
+			list.Sort((a, b) => - a.score.CompareTo(b.score));
 		}
 
 		public static List<ScoreInfo> LoadScore()
