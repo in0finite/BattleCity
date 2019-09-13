@@ -5105,6 +5105,7 @@ MonoBehaviour:
   scorePanel: {fileID: 2111177321}
   scoreEntryPrefab: {fileID: 36517500281171556, guid: 301309d063559954c9db3d763e572593,
     type: 3}
+  currentPlayerColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &1903709973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5850,6 +5851,6 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_Spacing: 4
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
