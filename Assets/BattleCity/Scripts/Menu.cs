@@ -11,6 +11,11 @@ namespace BattleCity
 	    {
 	        
 	    }
+
+		public virtual void OnBecameInactive()
+	    {
+	        
+	    }
 	    
 	}
 

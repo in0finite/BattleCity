@@ -14,7 +14,10 @@ namespace BattleCity
 			set
 			{
 				if (m_activeMenu != null)
+				{
+					m_activeMenu.OnBecameInactive();
 					m_activeMenu.gameObject.SetActive(false);
+				}
 
 				m_activeMenu = value;
 
