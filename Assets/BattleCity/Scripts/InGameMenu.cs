@@ -18,6 +18,11 @@ namespace BattleCity
 			Instance = this;
 		}
 
+		public override void OnBecameInactive()
+		{
+			this.gameOverText.gameObject.SetActive(false);
+		}
+
 		void Update()
 		{
 			if (MenuManager.ActiveMenu == this && MapManager.IsMapOpened)
@@ -40,7 +45,7 @@ namespace BattleCity
 				
 				// update game-over text
 				this.gameOverText.gameObject.SetActive(MapManager.IsGameOver);
-				
+
 			}
 
 			if (Input.GetKeyDown(KeyCode.Escape) && MapManager.IsMapOpened)
