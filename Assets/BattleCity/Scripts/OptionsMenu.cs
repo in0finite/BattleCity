@@ -25,7 +25,7 @@ namespace BattleCity
 			ReadPrefs();
 			
 	        saveButton.onClick.AddListener(() => Save());
-			backButton.onClick.AddListener(() => MenuManager.ActiveMenu = MainMenu.Instance);
+			backButton.onClick.AddListener(() => GoBack());
 	    }
 
 		void ReadPrefs()
@@ -45,6 +45,14 @@ namespace BattleCity
 			PlayerPrefs.Save();
 
 			MenuManager.ActiveMenu = MainMenu.Instance;
+		}
+
+		void GoBack()
+		{
+			if (MapManager.IsMapOpened)
+				MenuManager.ActiveMenu = PauseMenu.Instance;
+			else
+				MenuManager.ActiveMenu = MainMenu.Instance;
 		}
 
 		public override void OnBecameActive()
