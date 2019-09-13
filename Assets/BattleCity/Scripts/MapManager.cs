@@ -152,7 +152,9 @@ namespace BattleCity
 			yield return new WaitForSeconds(timeToWaitBeforeLoading);
 
 			// first destroy all existing objects
-			foreach(GameObject go in FindObjectsOfType<MapObject>().Select(obj => obj.gameObject).Concat(FindObjectsOfType<EnemyTank>().Select(obj => obj.gameObject)))
+			foreach(GameObject go in FindObjectsOfType<MapObject>().Select(obj => obj.gameObject)
+				.Concat(FindObjectsOfType<EnemyTank>().Select(obj => obj.gameObject)
+				.Concat(FindObjectsOfType<Bullet>().Select(obj => obj.gameObject))))
 			{
 				Destroy(go);
 			}

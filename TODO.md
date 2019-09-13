@@ -1,8 +1,6 @@
 
 - sound effects ; music
 
-- HUD - display: game over text
-
 - when options menu is opened from pause menu, the game will not be paused
 
 
