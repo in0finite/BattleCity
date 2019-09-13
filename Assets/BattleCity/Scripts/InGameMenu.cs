@@ -38,6 +38,13 @@ namespace BattleCity
 					this.hudText.text = str;
 				
 			}
+
+			if (Input.GetKeyDown(KeyCode.Escape) && MapManager.IsMapOpened)
+			{
+				if (MenuManager.ActiveMenu == this)
+					MenuManager.ActiveMenu = PauseMenu.Instance;
+			}
+
 		}
 		
 	}
