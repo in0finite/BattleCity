@@ -44,7 +44,7 @@ namespace BattleCity
 
 			PlayerPrefs.Save();
 
-			MenuManager.ActiveMenu = MainMenu.Instance;
+			GoBack();
 		}
 
 		void GoBack()
