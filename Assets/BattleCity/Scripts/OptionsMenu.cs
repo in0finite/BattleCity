@@ -62,7 +62,14 @@ namespace BattleCity
 	        soundEffectVolumeSlider.value = AudioManager.Instance.EffectsVolume;
 			musicVolumeSlider.value = AudioManager.Instance.MusicVolume;
 
+			Time.timeScale = 0f;
+			
 	    }
+
+		public override void OnBecameInactive()
+		{
+			Time.timeScale = 1f;
+		}
 
 	    void Update()
 	    {
