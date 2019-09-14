@@ -1,7 +1,4 @@
 
-- when options menu is opened from pause menu, the game will not be paused
-
-- apply sound volume from options menu
 
 
 ***
