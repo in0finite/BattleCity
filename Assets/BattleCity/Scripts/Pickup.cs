@@ -12,6 +12,11 @@ namespace BattleCity
 		public event System.Action onCollided = delegate {};
 
 
+		void Start()
+		{
+			AudioManager.Instance.PlaySound(AudioManager.kPickupSoundIndex);
+		}
+
 		void OnTriggerEnter(Collider collider)
 		{
 			if (m_collided)

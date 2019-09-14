@@ -81,6 +81,9 @@ namespace BattleCity
 				bullet.damage = this.bulletDamage;
 				bulletGo.GetComponent<Rigidbody>().velocity = bulletGo.transform.forward * this.bulletVelocity;
 
+				// play sound
+				AudioManager.Instance.PlaySound(AudioManager.kBulletSoundIndex);
+				
 			}
 
 		}
