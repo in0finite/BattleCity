@@ -8,7 +8,8 @@ namespace BattleCity
 	{
 		public static AudioManager Instance { get; private set; }
 
-		public const int kPickupSoundIndex = 0, kTankDestroySoundIndex = 1, kBulletSoundIndex = 2;
+		public const int kPickupSoundIndex = 0, kTankDestroySoundIndex = 1, kBulletSoundIndex = 2,
+			kGameOverSoundIndex = 3, kPickupPickedUpSoundIndex = 4;
 
 		public AudioSource[] AudioSources { get; private set; }
 		public AudioClip[] audioClips = new AudioClip[0];

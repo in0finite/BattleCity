@@ -305,6 +305,8 @@ namespace BattleCity
 			Instance.CancelInvoke(nameof(FinishGameLater));
 			Instance.Invoke(nameof(FinishGameLater), 3f);
 
+			AudioManager.Instance.PlaySound(AudioManager.kGameOverSoundIndex);
+
 		}
 
 		void FinishGameLater()

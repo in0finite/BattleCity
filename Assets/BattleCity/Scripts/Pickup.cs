@@ -28,6 +28,8 @@ namespace BattleCity
 
 		//	Debug.LogWarningFormat("Collision with pickup");
 
+			AudioManager.Instance.PlaySound(AudioManager.kPickupPickedUpSoundIndex);
+
 			this.onCollided();
 
 		}
