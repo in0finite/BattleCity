@@ -58,6 +58,7 @@ namespace BattleCity
 			if (this.health <= 0f)
 			{
 				Destroy(this.gameObject);
+				AudioManager.Instance.PlaySound(AudioManager.kTankDestroySoundIndex);
 				this.OnKilled(bullet);
 			}
 		}
