@@ -30,8 +30,8 @@ namespace BattleCity
 
 		void ReadPrefs()
 		{
-			AudioManager.Instance.EffectsVolume = PlayerPrefs.GetFloat("soundEffectVolume");
-			AudioManager.Instance.MusicVolume = PlayerPrefs.GetFloat("musicVolume");
+			AudioManager.Instance.EffectsVolume = PlayerPrefs.GetFloat("soundEffectVolume", 1.0f);
+			AudioManager.Instance.MusicVolume = PlayerPrefs.GetFloat("musicVolume", 1.0f);
 		}
 
 		void Save()
