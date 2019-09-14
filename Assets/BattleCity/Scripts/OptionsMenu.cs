@@ -12,7 +12,7 @@ namespace BattleCity
 		public Button saveButton, backButton;
 		public Slider soundEffectVolumeSlider, musicVolumeSlider;
 
-		public float soundEffectVolume, musicVolume;
+	//	public float soundEffectVolume, musicVolume;
 
 
 		void Awake()
@@ -30,17 +30,17 @@ namespace BattleCity
 
 		void ReadPrefs()
 		{
-			soundEffectVolume = PlayerPrefs.GetFloat("soundEffectVolume");
-			musicVolume = PlayerPrefs.GetFloat("musicVolume");
+			AudioManager.Instance.EffectsVolume = PlayerPrefs.GetFloat("soundEffectVolume");
+			AudioManager.Instance.MusicVolume = PlayerPrefs.GetFloat("musicVolume");
 		}
 
 		void Save()
 		{
-			soundEffectVolume = soundEffectVolumeSlider.value;
-			musicVolume = musicVolumeSlider.value;
+			AudioManager.Instance.EffectsVolume = soundEffectVolumeSlider.value;
+			AudioManager.Instance.MusicVolume = musicVolumeSlider.value;
 
-			PlayerPrefs.SetFloat("soundEffectVolume", soundEffectVolume);
-			PlayerPrefs.SetFloat("musicVolume", musicVolume);
+			PlayerPrefs.SetFloat("soundEffectVolume", AudioManager.Instance.EffectsVolume);
+			PlayerPrefs.SetFloat("musicVolume", AudioManager.Instance.MusicVolume);
 
 			PlayerPrefs.Save();
 
@@ -59,8 +59,8 @@ namespace BattleCity
 	    {
 			ReadPrefs();
 
-	        soundEffectVolumeSlider.value = soundEffectVolume;
-			musicVolumeSlider.value = musicVolume;
+	        soundEffectVolumeSlider.value = AudioManager.Instance.EffectsVolume;
+			musicVolumeSlider.value = AudioManager.Instance.MusicVolume;
 
 	    }
 
