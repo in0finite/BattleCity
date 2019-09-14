@@ -8,3 +8,4 @@
 .fuse_hidden*
 /*.csproj
 /obj/
+/Build/
