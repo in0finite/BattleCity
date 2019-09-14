@@ -230,7 +230,7 @@ namespace BattleCity
 			// reset num lifes
 			NumLifes = Instance.startingNumLifes;
 
-			AudioManager.Instance.PlaySound(AudioManager.kLevelLoadSoundIndex);
+			AudioManager.Instance.PlaySoundEffect(AudioManager.kLevelLoadSoundIndex);
 
 			s_isLoadingLevel = false;
 
@@ -307,7 +307,7 @@ namespace BattleCity
 			Instance.CancelInvoke(nameof(FinishGameLater));
 			Instance.Invoke(nameof(FinishGameLater), 3f);
 
-			AudioManager.Instance.PlaySound(AudioManager.kGameOverSoundIndex);
+			AudioManager.Instance.PlaySoundEffect(AudioManager.kGameOverSoundIndex);
 
 		}
 

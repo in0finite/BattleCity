@@ -58,7 +58,7 @@ namespace BattleCity
 			if (this.health <= 0f)
 			{
 				Destroy(this.gameObject);
-				AudioManager.Instance.PlaySound(AudioManager.kTankDestroySoundIndex);
+				AudioManager.Instance.PlaySoundEffect(AudioManager.kTankDestroySoundIndex);
 				this.OnKilled(bullet);
 			}
 		}
@@ -83,7 +83,7 @@ namespace BattleCity
 				bulletGo.GetComponent<Rigidbody>().velocity = bulletGo.transform.forward * this.bulletVelocity;
 
 				// play sound
-				AudioManager.Instance.PlaySound(AudioManager.kBulletSoundIndex);
+				AudioManager.Instance.PlaySoundEffect(AudioManager.kBulletSoundIndex);
 				
 			}
 

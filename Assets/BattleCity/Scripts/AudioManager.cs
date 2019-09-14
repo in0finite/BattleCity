@@ -31,7 +31,7 @@ namespace BattleCity
 	        
 	    }
 
-		public void PlaySound(int soundIndex)
+		public void PlaySoundEffect(int soundIndex)
 		{
 			AudioSource audioSource = this.AudioSources[soundIndex];
 			AudioClip audioClip = this.audioClips[soundIndex];

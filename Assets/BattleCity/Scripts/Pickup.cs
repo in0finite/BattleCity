@@ -14,7 +14,7 @@ namespace BattleCity
 
 		void Start()
 		{
-			AudioManager.Instance.PlaySound(AudioManager.kPickupSoundIndex);
+			AudioManager.Instance.PlaySoundEffect(AudioManager.kPickupSoundIndex);
 		}
 
 		void OnTriggerEnter(Collider collider)
@@ -28,7 +28,7 @@ namespace BattleCity
 
 		//	Debug.LogWarningFormat("Collision with pickup");
 
-			AudioManager.Instance.PlaySound(AudioManager.kPickupPickedUpSoundIndex);
+			AudioManager.Instance.PlaySoundEffect(AudioManager.kPickupPickedUpSoundIndex);
 
 			this.onCollided();
 
