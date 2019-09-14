@@ -1,4 +1,5 @@
 
+- display current score in score menu, even if player can not enter the score list
 
 
 ***
