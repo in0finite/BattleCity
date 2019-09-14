@@ -14,6 +14,9 @@ namespace BattleCity
 		public AudioSource[] AudioSources { get; private set; }
 		public AudioClip[] audioClips = new AudioClip[0];
 
+		public float EffectsVolume { get; set; } = 1.0f;
+		public float MusicVolume { get; set; } = 1.0f;
+
 
 
 		void Awake()
@@ -33,12 +36,23 @@ namespace BattleCity
 
 		public void PlaySoundEffect(int soundIndex)
 		{
+			this.PlaySound(soundIndex, this.EffectsVolume);
+		}
+
+		public void PlayMusic(int soundIndex)
+		{
+			this.PlaySound(soundIndex, this.MusicVolume);
+		}
+
+		void PlaySound(int soundIndex, float volume)
+		{
 			AudioSource audioSource = this.AudioSources[soundIndex];
 			AudioClip audioClip = this.audioClips[soundIndex];
 			if (audioSource.isPlaying)
 				audioSource.Stop();
 			audioSource.clip = audioClip;
 			audioSource.time = 0f;
+			audioSource.volume = Mathf.Clamp01(volume);
 			audioSource.Play();
 		}
 	    
