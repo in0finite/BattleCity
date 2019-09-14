@@ -18,13 +18,13 @@ namespace BattleCity
 		void Awake()
 		{
 			Instance = this;
+
+			ReadPrefs();
 		}
 
 	    void Start()
 	    {
-			ReadPrefs();
-			
-	        saveButton.onClick.AddListener(() => Save());
+			saveButton.onClick.AddListener(() => Save());
 			backButton.onClick.AddListener(() => GoBack());
 	    }
 
