@@ -14,3 +14,5 @@
 
 ***
 
+- don't send UI navigation events
+

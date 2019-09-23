@@ -23,9 +23,17 @@ namespace BattleCity
 	        optionsButton.onClick.AddListener(() => MenuManager.ActiveMenu = OptionsMenu.Instance);
 			scoreButton.onClick.AddListener(() => { ScoreMenu.Instance.CurrentScore = 0; ScoreMenu.Instance.ParentMenu = this; MenuManager.ActiveMenu = ScoreMenu.Instance; });
 			aboutButton.onClick.AddListener(() => MenuManager.ActiveMenu = AboutMenu.Instance);
-			helpButton.onClick.AddListener(() => Application.OpenURL("manual.pdf"));
+			helpButton.onClick.AddListener(() => OnHelpClicked());
 			exitButton.onClick.AddListener(() => Application.Quit());
 	    }
+
+		void OnHelpClicked()
+		{
+			var dirInfo = System.IO.Directory.GetParent(Application.dataPath);
+			string path = System.IO.Path.Combine(dirInfo.FullName, "Prilog A - Uputstvo za korišćenje.docx");
+			if (System.IO.File.Exists(path))
+				System.Diagnostics.Process.Start(path);
+		}
 
 	    void Update()
 	    {
