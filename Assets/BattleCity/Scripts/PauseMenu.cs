@@ -41,7 +41,7 @@ namespace BattleCity
 
 	    void Update()
 	    {
-	        if (Input.GetKeyDown(KeyCode.Escape) && MapManager.IsMapOpened)
+	        if (Input.GetButtonDown("Pause") && MapManager.IsMapOpened)
 			{
 				if (MenuManager.ActiveMenu == this)
 				{

@@ -80,7 +80,7 @@ namespace BattleCity
 		void Update()
 		{
 
-			if (Input.GetButton("Submit"))
+			if (Input.GetButton("Fire"))
 			{
 				this.TryFire();
 			}
