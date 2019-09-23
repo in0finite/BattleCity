@@ -243,11 +243,16 @@ namespace BattleCity
 				{
 					// we should fire
 					
-					this.TryFire();
+					GameObject visibleObject = this.GetVisibleObject();
+					if (visibleObject != null && (this.GetTargetsForShooting().Contains(visibleObject) || visibleObject.GetComponent<Brick>() != null))
+					{
+						this.TryFire();
 
-					// assign new interval
-					m_intervalToFireRandomly = Random.Range(this.minIntervalToFireRandomly, this.maxIntervalToFireRandomly);
+						// assign new interval
+						m_intervalToFireRandomly = Random.Range(this.minIntervalToFireRandomly, this.maxIntervalToFireRandomly);
 
+					}
+					
 				}
 			}
 
