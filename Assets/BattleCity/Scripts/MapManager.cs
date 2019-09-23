@@ -317,6 +317,7 @@ namespace BattleCity
 
 			ScoreMenu.Instance.ParentMenu = MainMenu.Instance;
 			ScoreMenu.Instance.CurrentScore = MapManager.CurrentScore;
+			ScoreMenu.Instance.ExitIfNotEnoughScore = true;
 			MenuManager.ActiveMenu = ScoreMenu.Instance;
 
 		}

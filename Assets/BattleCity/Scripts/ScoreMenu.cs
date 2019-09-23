@@ -34,6 +34,8 @@ namespace BattleCity
 		List<ScoreInfo> m_currentScoreList = new List<ScoreInfo>();
 		ScoreInfo m_newScoreInfo;
 
+		public bool ExitIfNotEnoughScore { get; set; } = false;
+
 
 
 		void Awake()
@@ -96,7 +98,20 @@ namespace BattleCity
 					scoreEntryGo.GetComponent<Text>().color = this.currentPlayerColor;
 			}
 
+			// exit if not enough score
+			if (this.ExitIfNotEnoughScore)
+			{
+				if (! bEnableInput)
+				{
+					MenuManager.ActiveMenu = MainMenu.Instance;
+				}
+			}
 
+		}
+
+		public override void OnBecameInactive()
+		{
+			this.ExitIfNotEnoughScore = false;
 		}
 
 		static void SortScoreList(List<ScoreInfo> list)
