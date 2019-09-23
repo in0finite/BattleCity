@@ -56,6 +56,9 @@ namespace BattleCity
 				if (m_numTanksSpawned >= this.numTanksPerLevel)
 					continue;
 
+				if (MapManager.IsGameOver)
+					continue;
+
 				var enemyTanks = FindObjectsOfType<EnemyTank>();
 				if (enemyTanks.Length >= this.maxNumTanksAtATime)
 					continue;
