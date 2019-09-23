@@ -14,4 +14,5 @@
 
 ***
 
+- if player does not have enough score, open main menu immediately
 
