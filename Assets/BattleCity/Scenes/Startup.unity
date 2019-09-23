@@ -2967,13 +2967,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'BattleCity remake in Unity
-
-
-    Made by Aca Lukovic @in0finite
-
-
-    github.com/in0finite'
+  m_Text: "BattleCity v1.0\ndiplomski rad osnovnih akademskih studija\nOpis: 3D video-igra
+    borba tenkova u gradu\nAutor: Aleksandar Lukovi\u0107\nMentor: prof. dr Igor Tartalja\n\xA9
+    Univerzitet u Beogradu \u2013 Elektrotehni\u010Dki fakultet, 2019"
 --- !u!222 &1242837336
 CanvasRenderer:
   m_ObjectHideFlags: 0
