@@ -3714,6 +3714,9 @@ MonoBehaviour:
   bulletDamage: 50
   bulletLayerName: EnemyBullet
   health: 100
+  onBulletHitPrefab: {fileID: 6497707112505099851, guid: 9f33e52a30710e741a7de4a921f5a888,
+    type: 3}
+  bulletHitPrefabLifeTime: 0.5
   minNumBlocksUntilRandomTurn: 5
   maxNumBlocksUntilRandomTurn: 15
   targetRaycastMask:

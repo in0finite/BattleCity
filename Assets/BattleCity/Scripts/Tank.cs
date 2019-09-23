@@ -22,6 +22,9 @@ namespace BattleCity
 
 		float m_originalHealth, m_originalMoveSpeed, m_originalBulletVelocity, m_originalBulletDamage;
 
+		public GameObject onBulletHitPrefab;
+		public float bulletHitPrefabLifeTime = 0.5f;
+
 
 
 		protected virtual void Awake()
@@ -55,6 +58,13 @@ namespace BattleCity
 			
 			this.health -= bullet.damage;
 			
+			// play bullet hit sound
+			AudioManager.Instance.PlaySoundEffect(AudioManager.kBulletHitSoundIndex);
+
+			// spawn game object
+			GameObject spawnedGo = Instantiate(this.onBulletHitPrefab, this.transform.position, Quaternion.identity);
+			Destroy(spawnedGo, this.bulletHitPrefabLifeTime);
+
 			if (this.health <= 0f)
 			{
 				Destroy(this.gameObject);

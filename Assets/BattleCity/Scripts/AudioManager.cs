@@ -9,7 +9,8 @@ namespace BattleCity
 		public static AudioManager Instance { get; private set; }
 
 		public const int kPickupSoundIndex = 0, kTankDestroySoundIndex = 1, kBulletSoundIndex = 2,
-			kGameOverSoundIndex = 3, kPickupPickedUpSoundIndex = 4, kLevelLoadSoundIndex = 5;
+			kGameOverSoundIndex = 3, kPickupPickedUpSoundIndex = 4, kLevelLoadSoundIndex = 5,
+			kBulletHitSoundIndex = 6;
 
 		public AudioSource[] AudioSources { get; private set; }
 		public AudioClip[] audioClips = new AudioClip[0];
