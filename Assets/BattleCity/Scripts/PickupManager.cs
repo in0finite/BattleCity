@@ -101,6 +101,16 @@ namespace BattleCity
 			Debug.LogFormat("Spawned pickup {0} at {1}", index, pos);
 		}
 		
+		public float GetMaxPlayerTankHealth()
+		{
+			return MapManager.Instance.playerTankPrefab.GetComponent<Tank>().health * 2.0f;
+		}
+
+		public float GetMaxPlayerTankBulletDamage()
+		{
+			return MapManager.Instance.playerTankPrefab.GetComponent<Tank>().bulletDamage * 2.0f;
+		}
+
 		static void OnStarPickedUp()
 		{
 			PlayerTank tank = PlayerTank.Instance;

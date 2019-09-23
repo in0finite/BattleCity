@@ -34,9 +34,9 @@ namespace BattleCity
 					"Score ", MapManager.CurrentScore,
 					"\nLifes ", MapManager.NumLifes,
 					"\nHealth ", 
-					tank != null ? tank.health.ToString() : "0",
+					(tank != null ? tank.health.ToString() : "0") + " / " + PickupManager.Instance.GetMaxPlayerTankHealth(),
 					"\nDamage ",
-					tank != null ? tank.bulletDamage.ToString() : "0",
+					(tank != null ? tank.bulletDamage.ToString() : "0") + " / " + PickupManager.Instance.GetMaxPlayerTankBulletDamage(),
 					"\nLevel ", MapManager.CurrentLevel,
 					"\nEnemies left ", EnemyTankSpawner.Instance.NumTanksLeftToSpawn + EnemyTank.AllTanks.Count);
 				
