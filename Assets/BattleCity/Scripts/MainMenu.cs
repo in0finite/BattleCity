@@ -30,7 +30,7 @@ namespace BattleCity
 		void OnHelpClicked()
 		{
 			var dirInfo = System.IO.Directory.GetParent(Application.dataPath);
-			string path = System.IO.Path.Combine(dirInfo.FullName, "Prilog A - Uputstvo za korišćenje.docx");
+			string path = System.IO.Path.Combine(dirInfo.FullName, "Prilog A - Uputstvo za korišćenje.pdf");
 			if (System.IO.File.Exists(path))
 				System.Diagnostics.Process.Start(path);
 		}
