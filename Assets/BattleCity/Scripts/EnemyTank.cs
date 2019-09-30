@@ -141,12 +141,34 @@ namespace BattleCity
 			this.transform.position = new Vector3(pos.x, this.transform.position.y, pos.y);
 		}
 
+		public Vector2 GetApproximatePos()
+		{
+			return new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.z));
+		}
+
 		public bool CanWalkToBlock(Vector2 blockPos)
 		{
 			if (! MapManager.IsInsideMap(blockPos))
 				return false;
+			
 			var mapObj = MapManager.GetMapObjectAt(blockPos);
-			return null == mapObj || mapObj.IsPassable;
+			if (mapObj != null && !mapObj.IsPassable)
+				return false;
+			
+			return ! IsAnyTankAtBlock(blockPos, this);
+		}
+
+		public static bool IsAnyTankAtBlock(Vector2 blockPos, Tank tankToIgnore)
+		{
+			foreach (var tank in EnemyTank.AllTanks)
+			{
+				if (tank == tankToIgnore)
+					continue;
+				if (tank.GetApproximatePos() == blockPos)
+					return true;
+			}
+
+			return false;
 		}
 
 		public IEnumerable<GameObject> GetTargetsForShooting()
