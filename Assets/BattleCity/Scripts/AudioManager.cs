@@ -29,6 +29,31 @@ namespace BattleCity
 
 		}
 
+		void OnEnable()
+		{
+			UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnSceneChanged;
+		}
+
+		void OnDisable()
+		{
+			UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= OnSceneChanged;
+		}
+
+		void OnSceneChanged(UnityEngine.SceneManagement.Scene s1, UnityEngine.SceneManagement.Scene s2)
+		{
+
+			// stop all sounds if we are in main menu
+			if (! MapManager.IsMapOpened)
+			{
+				foreach (AudioSource audioSource in this.AudioSources)
+				{
+					if (audioSource.isPlaying)
+						audioSource.Stop();
+				}
+			}
+
+		}
+
 	    void Start()
 	    {
 			

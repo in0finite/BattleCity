@@ -14,10 +14,6 @@
 
 ***
 
-- don't send UI navigation events
-
-- stop all sounds when in main menu
-
 - set default quality to Fantastic
 
 - dislay health bar above enemy tanks
