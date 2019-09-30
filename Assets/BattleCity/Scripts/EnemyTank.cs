@@ -146,11 +146,6 @@ namespace BattleCity
 			this.transform.position = new Vector3(pos.x, this.transform.position.y, pos.y);
 		}
 
-		public Vector2 GetApproximatePos()
-		{
-			return new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.z));
-		}
-
 		public bool CanWalkToBlock(Vector2 blockPos)
 		{
 			if (! MapManager.IsInsideMap(blockPos))
@@ -171,6 +166,14 @@ namespace BattleCity
 				if (tank == tankToIgnore)
 					continue;
 				if (tank.GetApproximatePos() == blockPos)
+					return true;
+			}
+
+			// check player's tank
+			var playerTank = PlayerTank.Instance;
+			if (playerTank != null && playerTank != tankToIgnore)
+			{
+				if (playerTank.GetApproximatePos() == blockPos)
 					return true;
 			}
 

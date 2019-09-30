@@ -60,6 +60,12 @@ namespace BattleCity
 		}
 
 
+		public Vector2 GetApproximatePos()
+		{
+			return new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.z));
+		}
+
+
 		public virtual void OnCollidedWithBullet(Bullet bullet)
 		{
 			if (this.health <= 0f)
