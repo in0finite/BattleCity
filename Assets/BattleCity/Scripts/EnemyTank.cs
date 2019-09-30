@@ -131,6 +131,11 @@ namespace BattleCity
 			this.transform.forward = dir;
 		}
 
+		public Vector3 ConvertTo3D(Vector2 pos)
+		{
+			return new Vector3(pos.x, this.transform.position.y, pos.y);
+		}
+
 		public Vector2 GetReal2DPos()
 		{
 			return new Vector2(this.transform.position.x, this.transform.position.z);
@@ -156,6 +161,7 @@ namespace BattleCity
 				return false;
 			
 			return ! IsAnyTankAtBlock(blockPos, this);
+			//return true;
 		}
 
 		public static bool IsAnyTankAtBlock(Vector2 blockPos, Tank tankToIgnore)
@@ -316,7 +322,7 @@ namespace BattleCity
 				}
 				else
 				{
-					Debug.LogErrorFormat("No available dirs");
+				//	Debug.LogErrorFormat("No available dirs");
 				}
 			}
 
@@ -324,12 +330,12 @@ namespace BattleCity
 
 			if (this.CanWalkToBlock(this.TargetPos))
 			{
-				Vector2 moveDelta = m_currentDir * this.moveSpeed * Time.deltaTime;
+				Vector2 moveDelta = (this.TargetPos - this.GetReal2DPos()).normalized * this.moveSpeed * Time.deltaTime;
 
 				// check if tank will miss the target position
 				float distanceToTargetPos = Vector2.Distance(this.GetReal2DPos(), this.TargetPos);
 
-				if (distanceToTargetPos <= moveDelta.magnitude)
+				if (moveDelta.sqrMagnitude < float.Epsilon || distanceToTargetPos <= moveDelta.magnitude)
 				{
 					// tank will miss target position
 					// this means that tank arrived at target position and changed it's current position
@@ -404,6 +410,30 @@ namespace BattleCity
 			var go = this.GetVisibleObject();
 			if (go != null)
 				Gizmos.DrawCube(go.transform.position, Vector3.one);
+		}
+
+		void OnDrawGizmos()
+		{
+
+			// draw current pos
+			Gizmos.color = Color.yellow;
+			Gizmos.DrawWireSphere(ConvertTo3D(m_currentPos), 0.45f);
+
+			// draw occupying block
+			Gizmos.color = Color.green;
+			Gizmos.DrawWireCube(new Vector3(this.GetApproximatePos().x, this.transform.position.y, this.GetApproximatePos().y), Vector3.one);
+
+			// draw target position
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(new Vector3(this.TargetPos.x, this.transform.position.y, this.TargetPos.y), 0.3f);
+
+			// draw available nearby positions
+			Gizmos.color = Color.blue;
+			foreach(Vector2 dir in this.GetAvailableDirs(GetAllDirs()))
+			{
+				Gizmos.DrawWireCube(ConvertTo3D(m_currentPos + dir), Vector3.one * 0.9f);
+			}
+
 		}
 		
 	}
