@@ -14,8 +14,6 @@
 
 ***
 
-- set default quality to Fantastic
-
 - dislay health bar above enemy tanks
 
 - collision between tanks
