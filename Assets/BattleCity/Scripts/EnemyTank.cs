@@ -60,6 +60,8 @@ namespace BattleCity
 			// set material
 			foreach(var mr in this.GetComponentsInChildren<MeshRenderer>())
 			{
+				if (this.healthBar != null && mr.transform.parent.gameObject == this.healthBar.gameObject)
+					continue;
 				mr.sharedMaterial = MapManager.Instance.enemyTankMaterial;
 			}
 

@@ -15,8 +15,8 @@ namespace BattleCity
 		public Renderer FillRenderer { get; private set; }
 
 		public Color BorderColor { get { return this.BorderRenderer.material.color; } set { this.BorderRenderer.material.color = value; } }
-		public Color BackgroundColor { get { return this.BackgroundRenderer.material.color; } set { this.BackgroundRenderer.material.color = value; } }
-		public Color FillColor { get { return this.FillRenderer.material.color; } set { this.FillRenderer.material.color = value; } }
+		public Color BackgroundColor { get { return this.BackgroundRenderer.material.color; } set { var mat = this.BackgroundRenderer.material; mat.color = value; this.BackgroundRenderer.material = mat; } }
+		public Color FillColor { get { return this.FillRenderer.material.color; } set { var mat = this.FillRenderer.material; mat.color = value; this.FillRenderer.material = mat; } }
 
 		[SerializeField] private Vector3 m_barSize = new Vector3 (1f, 0.2f, 1f);
 		public Vector3 BarSize { get { return m_barSize; } set { m_barSize = value; } }

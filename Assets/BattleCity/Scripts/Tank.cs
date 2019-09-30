@@ -25,6 +25,10 @@ namespace BattleCity
 		public GameObject onBulletHitPrefab;
 		public float bulletHitPrefabLifeTime = 0.5f;
 
+		public Bar healthBar;
+		public Color healthBarBackgroundColor = Color.green;
+		public Color healthBarFillColor = Color.red;
+
 
 
 		protected virtual void Awake()
@@ -47,7 +51,12 @@ namespace BattleCity
 		
 		protected virtual void Start()
 		{
-			
+			if (this.healthBar != null)
+			{
+				this.healthBar.BackgroundColor = this.healthBarBackgroundColor;
+				this.healthBar.FillColor = this.healthBarFillColor;
+				this.UpdateHealthBar();
+			}
 		}
 
 
@@ -64,6 +73,10 @@ namespace BattleCity
 			// spawn game object
 			GameObject spawnedGo = Instantiate(this.onBulletHitPrefab, this.transform.position, Quaternion.identity);
 			Destroy(spawnedGo, this.bulletHitPrefabLifeTime);
+
+			// update health bar
+			if (this.healthBar != null)
+				this.UpdateHealthBar();
 
 			if (this.health <= 0f)
 			{
@@ -139,6 +152,12 @@ namespace BattleCity
 		public void SetBulletDamagePerc(float perc)
 		{
 			this.bulletDamage = m_originalBulletDamage * perc;
+		}
+
+
+		protected void UpdateHealthBar()
+		{
+			this.healthBar.SetFillPerc(this.health / m_originalHealth);
 		}
 		
 	}

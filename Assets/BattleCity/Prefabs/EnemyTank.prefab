@@ -3692,6 +3692,7 @@ Transform:
   m_Children:
   - {fileID: 8131785193246995290}
   - {fileID: 1746205575164253813}
+  - {fileID: 8702428171767284584}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3717,6 +3718,9 @@ MonoBehaviour:
   onBulletHitPrefab: {fileID: 6497707112505099851, guid: 9f33e52a30710e741a7de4a921f5a888,
     type: 3}
   bulletHitPrefabLifeTime: 0.5
+  healthBar: {fileID: 8745385749635945134}
+  healthBarBackgroundColor: {r: 1, g: 0, b: 0, a: 1}
+  healthBarFillColor: {r: 0, g: 1, b: 0, a: 1}
   minNumBlocksUntilRandomTurn: 5
   maxNumBlocksUntilRandomTurn: 15
   targetRaycastMask:
@@ -7987,3 +7991,83 @@ Transform:
   m_Father: {fileID: 7602058592348665034}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8703981302763522926
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7602058592348665034}
+    m_Modifications:
+    - target: {fileID: 1593438409806284, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_Name
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114589864964184512, guid: 92671d073b68a421fa8cf12bd74315cb,
+        type: 3}
+      propertyPath: m_maxHeightOnScreen
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92671d073b68a421fa8cf12bd74315cb, type: 3}
+--- !u!4 &8702428171767284584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4499964060633094, guid: 92671d073b68a421fa8cf12bd74315cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8703981302763522926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8745385749635945134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114589864964184512, guid: 92671d073b68a421fa8cf12bd74315cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8703981302763522926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7111f45c86a74947af5f6831ab01122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
