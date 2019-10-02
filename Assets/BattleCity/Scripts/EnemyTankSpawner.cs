@@ -65,7 +65,7 @@ namespace BattleCity
 				
 				// find position for spawning
 				// use only spawns which are not occupied
-				EnemySpawn[] spawns = MapManager.MapObjects.OfType<EnemySpawn>().Where(s => ! EnemyTank.IsAnyTankAtBlock(s.Position, null) ).ToArray();
+				EnemySpawn[] spawns = MapManager.MapObjects.OfType<EnemySpawn>().Where(s => CanSpawnTankAt(s) ).ToArray();
 				if (spawns.Length < 1)
 					continue;
 
@@ -81,6 +81,34 @@ namespace BattleCity
 				enemyTank.SetParamsBasedOnCurrentLevel();
 
 			}
+		}
+
+		public static bool CanSpawnTankAt(EnemySpawn spawn)
+		{
+			return CanSpawnTankAt(spawn.Position);
+		}
+
+		public static bool CanSpawnTankAt(Vector2 spawnPosition)
+		{
+
+			foreach(Tank tank in MapManager.GetAllTanks())
+			{
+				if (tank.GetApproximatePos() == spawnPosition)
+					return false;
+				
+				if (tank is EnemyTank)
+				{
+					EnemyTank enemyTank = (EnemyTank) tank;
+					if (enemyTank.TargetPos == spawnPosition)
+						return false;
+					if (enemyTank.GetCurrentPos() == spawnPosition)
+						return false;
+				}
+
+			}
+
+			return true;
+
 		}
 
 		void Update()

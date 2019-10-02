@@ -288,7 +288,11 @@ namespace BattleCity
 			if (PlayerTank.Instance != null)
 				return;
 			
-			SpawnPlayerTank();
+			if (EnemyTankSpawner.CanSpawnTankAt(FindObjectOfType<PlayerSpawn>().Position))
+				SpawnPlayerTank();
+			else
+				this.Invoke(nameof(SpawnPlayerTankLater), 1f);
+			
 		}
 
 		public static void OnFlagDestroyed()

@@ -8,6 +8,7 @@ namespace BattleCity
 	public class EnemyTank : Tank
 	{
 		Vector2 m_currentPos;
+		public Vector2 GetCurrentPos() => m_currentPos;
 		Vector2 m_currentDir;
 		public Vector2 TargetPos => m_currentPos + m_currentDir;
 		int m_numBlocksUntilRandomTurn = int.MaxValue;
