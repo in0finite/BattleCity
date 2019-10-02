@@ -17,6 +17,7 @@ namespace BattleCity
 		public bool HasShield { get; set; } = false;
 		public GameObject shieldGameObject;
 		public float shieldRotationSpeed = 60f;
+		public float startupShieldDuration = 3f;
 
 
 
@@ -44,6 +45,15 @@ namespace BattleCity
 			// restore shield material
 			this.shieldGameObject.GetComponent<Renderer>().sharedMaterial = savedShieldMaterial;
 
+			// enable shield for some time
+			this.HasShield = true;
+			this.Invoke(nameof(CancelShield), this.startupShieldDuration);
+
+		}
+
+		void CancelShield()
+		{
+			this.HasShield = false;
 		}
 
 		public override void OnCollidedWithBullet(Bullet bullet)
