@@ -26,6 +26,8 @@ namespace BattleCity
 		public float freezePickupDuration = 8f;
 		public float shieldPickupDuration = 10f;
 
+		bool m_shouldSpawnPickup = false;
+
 
 
 		void Awake()
@@ -59,7 +61,8 @@ namespace BattleCity
 			if (m_numEnemyTanksDestroyed >= numTanksToBeDestroyedForSpawn)
 			{
 				m_numEnemyTanksDestroyed = 0;
-				SpawnPickup();
+				//SpawnPickup();
+				m_shouldSpawnPickup = true;
 			}
 		}
 
@@ -155,6 +158,18 @@ namespace BattleCity
 		{
 			if (PlayerTank.Instance != null)
 				PlayerTank.Instance.HasShield = false;
+		}
+
+
+		void Update()
+		{
+
+			if (m_shouldSpawnPickup)
+			{
+				m_shouldSpawnPickup = false;
+				SpawnPickup();
+			}
+
 		}
 
 	}

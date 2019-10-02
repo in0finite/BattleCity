@@ -6,7 +6,7 @@
 
 - prevent **possible** collision between bullet and shooter tank
 
-- don't create pickups from OnDisable()
-
 ***
+
+- tank can fire while game is paused
 
