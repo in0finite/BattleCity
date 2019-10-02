@@ -282,8 +282,12 @@ namespace BattleCity
 
 		void SpawnPlayerTankLater()
 		{
+			if (MapManager.IsGameOver)
+				return;
+			
 			if (PlayerTank.Instance != null)
 				return;
+			
 			SpawnPlayerTank();
 		}
 
@@ -308,6 +312,12 @@ namespace BattleCity
 			Instance.Invoke(nameof(FinishGameLater), 3f);
 
 			AudioManager.Instance.PlaySoundEffect(AudioManager.kGameOverSoundIndex);
+
+			// destroy all bullets
+			foreach (Bullet bullet in FindObjectsOfType<Bullet>())
+			{
+				Destroy(bullet.gameObject);
+			}
 
 		}
 

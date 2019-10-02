@@ -262,6 +262,9 @@ namespace BattleCity
 		void Update()
 		{
 
+			if (MapManager.IsGameOver)
+				return;
+
 			// fire bullet at target
 			if (this.CanFire && ! AreAllEnemyTanksFrozen)
 			{
@@ -294,6 +297,9 @@ namespace BattleCity
 		void FixedUpdate()
 		{
 			if (AreAllEnemyTanksFrozen)
+				return;
+
+			if (MapManager.IsGameOver)
 				return;
 
 			// check if block in front of the tank is taken

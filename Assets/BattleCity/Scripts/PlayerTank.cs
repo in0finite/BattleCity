@@ -71,6 +71,9 @@ namespace BattleCity
 		void FixedUpdate()
 		{
 
+			if (MapManager.IsGameOver)
+				return;
+
 			Vector3 inputMove = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 			inputMove.Normalize();
 			if (inputMove.sqrMagnitude > 0f)
@@ -89,6 +92,9 @@ namespace BattleCity
 
 		void Update()
 		{
+
+			if (MapManager.IsGameOver)
+				return;
 
 			if (Input.GetButtonDown("Fire"))
 			{
