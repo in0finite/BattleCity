@@ -96,7 +96,7 @@ namespace BattleCity
 			if (MapManager.IsGameOver)
 				return;
 
-			if (Input.GetButtonDown("Fire"))
+			if (Input.GetButtonDown("Fire") && Time.timeScale > 0)
 			{
 				this.TryFire();
 			}

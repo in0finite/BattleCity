@@ -8,5 +8,3 @@
 
 ***
 
-- tank can fire while game is paused
-
