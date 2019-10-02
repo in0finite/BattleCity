@@ -321,6 +321,17 @@ namespace BattleCity
 			MenuManager.ActiveMenu = ScoreMenu.Instance;
 
 		}
+
+
+		public static IEnumerable<Tank> GetAllTanks()
+		{
+			foreach (var enemyTank in EnemyTank.AllTanks)
+				yield return enemyTank;
+			
+			if (PlayerTank.Instance != null)
+				yield return PlayerTank.Instance;
+			
+		}
 		
 	}
 

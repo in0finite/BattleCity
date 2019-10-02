@@ -63,13 +63,17 @@ namespace BattleCity
 				if (enemyTanks.Length >= this.maxNumTanksAtATime)
 					continue;
 				
+				// find position for spawning
+				// use only spawns which are not occupied
+				EnemySpawn[] spawns = MapManager.MapObjects.OfType<EnemySpawn>().Where(s => ! EnemyTank.IsAnyTankAtBlock(s.Position, null) ).ToArray();
+				if (spawns.Length < 1)
+					continue;
+
+				EnemySpawn spawn = spawns[ Random.Range(0, spawns.Length) ];
+
 				// spawn new tank
 
 				m_numTanksSpawned ++;
-
-				// find position for spawning
-				EnemySpawn[] spawns = MapManager.MapObjects.OfType<EnemySpawn>().ToArray();
-				EnemySpawn spawn = spawns[ Random.Range(0, spawns.Length) ];
 
 				EnemyTank enemyTank = Instantiate(MapManager.Instance.enemyTankPrefab, new Vector3(spawn.transform.position.x, MapManager.Instance.enemyTankPrefab.transform.position.y, spawn.transform.position.z), 
 					Quaternion.LookRotation(-Vector3.forward)).GetComponent<EnemyTank>();
