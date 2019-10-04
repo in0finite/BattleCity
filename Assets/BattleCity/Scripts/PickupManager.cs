@@ -21,6 +21,12 @@ namespace BattleCity
 			OnShieldPickedUp,
 		};
 
+		static PickupEffect[] s_pickupEffects = new PickupEffect[] {
+			new StrengthEffect(),
+			new StopEffect(),
+			new ShieldEffect(),
+		};
+
 		public float pickupLifeTime = 10f;
 
 		public float freezePickupDuration = 8f;
@@ -116,23 +122,12 @@ namespace BattleCity
 
 		static void OnStarPickedUp()
 		{
-			PlayerTank tank = PlayerTank.Instance;
-			if (tank != null)
-			{
-				// 3 levels of strength/damage (0.34 * 3 = 1.02)
-
-				float newPerc = Mathf.Min( tank.GetHealthPerc() + 0.34f, 2.0f );
-				tank.SetHealthPerc(newPerc);
-
-				newPerc = Mathf.Min( tank.GetBulletDamagePerc() + 0.34f, 2.0f );
-				tank.SetBulletDamagePerc(newPerc);
-
-			}
+			s_pickupEffects[0].ApplyEffect();
 		}
 
 		static void OnFreezePickedUp()
 		{
-			EnemyTank.AreAllEnemyTanksFrozen = true;
+			s_pickupEffects[1].ApplyEffect();
 
 			Instance.CancelInvoke(nameof(CancelFreeze));
 			Instance.Invoke(nameof(CancelFreeze), Instance.freezePickupDuration);
@@ -140,14 +135,14 @@ namespace BattleCity
 
 		void CancelFreeze()
 		{
-			EnemyTank.AreAllEnemyTanksFrozen = false;
+			s_pickupEffects[1].CancelEffect();
 		}
 
 		static void OnShieldPickedUp()
 		{
 			if (PlayerTank.Instance != null)
 			{
-				PlayerTank.Instance.HasShield = true;
+				s_pickupEffects[2].ApplyEffect();
 
 				Instance.CancelInvoke(nameof(CancelShield));
 				Instance.Invoke(nameof(CancelShield), Instance.shieldPickupDuration);
@@ -156,8 +151,7 @@ namespace BattleCity
 
 		void CancelShield()
 		{
-			if (PlayerTank.Instance != null)
-				PlayerTank.Instance.HasShield = false;
+			s_pickupEffects[2].CancelEffect();
 		}
 
 
